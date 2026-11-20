@@ -19,7 +19,7 @@ class LedPagoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-    title: 'LEDPago Limón Oaxaca',
+    title: 'CODE UNCA',
     debugShowCheckedModeBanner: false,
     theme: buildTheme(),
     home: const HomeShell(),

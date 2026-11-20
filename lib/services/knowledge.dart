@@ -73,6 +73,52 @@ const _faqs = <_Faq>[
     'Te dice si está verde y firme, amarillando o con manchas. Es una guía; la decisión final es tuya.',
   ),
   _Faq(
+    [
+      'tipo',
+      'tipos',
+      'variedad',
+      'variedades',
+      'persa',
+      'mexicano',
+      'criollo',
+      'semilla',
+      'jugo',
+    ],
+    'Los principales son el limón persa y el limón mexicano. El persa es más grande, sin semilla y '
+    'muy jugoso; el mexicano es más pequeño, ácido y típico de la Sierra de Flores Magón. '
+    'En Pedidos puedes registrar ambos con su precio del día.',
+  ),
+  _Faq(
+    [
+      'ley',
+      'comercio',
+      'digital',
+      'pagos digitales',
+      'banxico',
+      'nivel 2 bis',
+      'reglas',
+    ],
+    'La ley de comercio digital promueve que más negocios acepten pagos digitales, pero no prohíbe '
+    'el efectivo. Para pequeños comercios existe la Cuenta Nivel 2 Bis, que te ayuda a construir '
+    'historial con cada venta. Confirma montos y reglas vigentes con Banxico o tu banco.',
+  ),
+  _Faq(
+    [
+      'banco',
+      'clabe',
+      'datos',
+      'bancarios',
+      'titular',
+      'agregar',
+      'agrego',
+      'simulacion',
+      'simular',
+    ],
+    'En CODE UNCA puedes agregar tus datos bancarios como simulación desde el botón de '
+    'configuración de Cobrar. Guarda banco, CLABE y titular solo en tu dispositivo. '
+    'No escribas datos reales ni los compartas.',
+  ),
+  _Faq(
     ['hola', 'ayuda', 'buenas', 'puedes'],
     'Puedo explicarte cómo cobrar con QR, cómo registrar tus pedidos de limón, '
     'qué es CoDi, la Cuenta Nivel 2 Bis y qué dice la ley de pagos digitales.',
@@ -89,7 +135,7 @@ String _norm(String s) {
   return out.replaceAll(RegExp(r'[^a-z0-9 ]'), ' ');
 }
 
-String answerFor(String question) {
+String answerFor(String question, {String? contexto}) {
   const stopwords = <String>{
     'como',
     'que',
@@ -121,7 +167,20 @@ String answerFor(String question) {
       bestScore = score;
     }
   }
-  return best?.answer ??
+  final base =
+      best?.answer ??
       'No estoy seguro de eso. Puedes preguntarme cómo cobrar con QR, cómo registrar pedidos de limón, '
           'qué es CoDi o la Cuenta Nivel 2 Bis.';
+
+  final q = _norm(question);
+  final pideContexto =
+      contexto != null &&
+      contexto.isNotEmpty &&
+      (q.contains('foto') ||
+          q.contains('calidad') ||
+          q.contains('resultado') ||
+          q.contains('banco') ||
+          q.contains('clabe') ||
+          q.contains('datos'));
+  return pideContexto ? '$contexto $base' : base;
 }

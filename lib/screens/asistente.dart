@@ -3,6 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 import '../services/knowledge.dart';
+import '../store.dart';
 import '../theme.dart';
 import '../widgets.dart';
 
@@ -37,7 +38,10 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
     '¿Cómo cobro con QR?',
     '¿Es obligatorio aceptar tarjeta?',
     '¿Qué es CoDi?',
-    '¿Cómo cuido la calidad?',
+    '¿Qué tipo de limón vendo?',
+    '¿Qué dice la ley de comercio digital?',
+    '¿Cómo agrego mis datos bancarios?',
+    '¿Qué dice mi última foto?',
   ];
 
   @override
@@ -59,7 +63,7 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
   Future<void> _send(String text) async {
     final q = text.trim();
     if (q.isEmpty) return;
-    final a = answerFor(q);
+    final a = answerFor(q, contexto: _contexto());
     setState(() {
       _msgs.add(_Msg(q, true));
       _msgs.add(_Msg(a, false));
@@ -105,6 +109,32 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
         if (r.finalResult) _send(r.recognizedWords);
       },
     );
+  }
+
+  /// Contexto breve del estado actual de la app para las respuestas.
+  String _contexto() {
+    final partes = <String>[];
+    if (store.lastPhotoClase.isNotEmpty) {
+      final duda = store.lastPhotoDudoso ? ', pero fue dudosa' : '';
+      partes.add(
+        'Tu última foto se analizó como ${store.lastPhotoClase} con '
+        '${(store.lastPhotoConfianza * 100).toStringAsFixed(0)}% de confianza$duda.',
+      );
+    } else {
+      partes.add('Aún no has subido ninguna foto a Calidad.');
+    }
+    if (store.bankClabe.isNotEmpty) {
+      final ultimos = store.bankClabe.length > 4
+          ? store.bankClabe.substring(store.bankClabe.length - 4)
+          : store.bankClabe;
+      partes.add(
+        'Tus datos bancarios simulados son de ${store.bankName.isEmpty ? 'banco no definido' : store.bankName}, '
+        'CLABE terminada en $ultimos.',
+      );
+    } else {
+      partes.add('Aún no has agregado datos bancarios simulados.');
+    }
+    return partes.join(' ');
   }
 
   @override

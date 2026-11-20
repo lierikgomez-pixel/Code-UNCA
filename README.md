@@ -1,4 +1,6 @@
-# LEDPago Limón Oaxaca
+# CODE UNCA — Comercio digital del limón
+
+Oaxaca y Sierra de Flores Magón.
 
 App Flutter (cobro, pedidos, control de calidad, asistente y aprendizaje) para
 productores de limón/lima (*Citrus aurantiifolia*).
@@ -46,6 +48,14 @@ Archivos relacionados:
 - `lib/services/modelo_stub.dart` — respaldo no web.
 - `web/ort_helper.js` — carga de la sesión ONNX.
 - `web/index.html` — scripts de ORT desde CDN.
+
+### Asistente y simulación bancaria
+
+El asistente responde sobre tipos de limón (persa y mexicano), la ley de
+comercio digital, CoDi, la Cuenta Nivel 2 Bis y el contexto de la última foto
+analizada. Desde **Cobrar →Mi negocio** el vendedor puede capturar banco, CLABE
+y titular **solo como simulación local**; el asistente menciona el estado de esos
+datos sin mostrar la CLABE completa.
 
 ## Despliegue en Vercel
 
