@@ -1,5 +1,5 @@
 // Evaluación reproducible del asistente.
-// Uso: dart run training/asistente/evaluar.dart
+// Uso: dart run docs/training/asistente/evaluar.dart
 // Compara la respuesta base (sin adaptar) contra el asistente adaptado
 // (RAG local + few-shot) en 10 casos reservados. Verifica además consistencia:
 // cada pregunta se responde tres veces y se compara la respuesta obtenida.
@@ -73,5 +73,5 @@ void main() {
 
   final json = const JsonEncoder.withIndent('  ').convert(resultado);
   stdout.writeln(json);
-  File('training/asistente/resultados_evaluacion.json').writeAsStringSync('$json\n', encoding: utf8);
+  File('docs/training/asistente/resultados_evaluacion.json').writeAsStringSync('$json\n', encoding: utf8);
 }

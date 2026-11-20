@@ -52,7 +52,7 @@ El panel lo dice explícitamente: **«Es una segunda opinión. La decisión fina
 Script reproducible: `evaluar.dart`.
 
 ```bash
-dart run training/asistente/evaluar.dart
+dart run docs/training/asistente/evaluar.dart
 ```
 
 El script:

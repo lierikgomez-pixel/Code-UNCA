@@ -1,5 +1,5 @@
 // Evidencias ejecutables de la aplicación (casos normales, errores y datos inválidos).
-// Uso: dart run evidencias/verificar_app.dart
+// Uso: dart run docs/evidencias/verificar_app.dart
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_application_1/models.dart';
@@ -104,5 +104,5 @@ void main() {
 
   final json = const JsonEncoder.withIndent('  ').convert(resultado);
   stdout.writeln(json);
-  File('evidencias/resultados_app.json').writeAsStringSync('$json\n', encoding: utf8);
+  File('docs/evidencias/resultados_app.json').writeAsStringSync('$json\n', encoding: utf8);
 }

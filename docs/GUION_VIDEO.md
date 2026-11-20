@@ -15,4 +15,4 @@
 | 9 | Evidencias verificables | Las evidencias son ejecutables: doce casos de aplicación, diez del asistente, métricas de visión y verificación del modelo en producción. Sin errores de consola. |
 | 10 | Cierre | Entregamos la aplicación, instrucciones, entrenamiento, evidencias, ficha, presentación y este video. Lo simulado está declarado. Nivel de madurez tecnológica cinco. La inteligencia artificial orienta; el productor decide. Gracias. |
 
-El video se genera con `python tools/generar_video.py`.
+El video se genera con `python docs/tools/generar_video.py`.

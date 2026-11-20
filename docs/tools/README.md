@@ -11,8 +11,8 @@ Estos scripts solo generan documentos; **no son dependencias de la app Flutter**
 ## Uso
 
 ```bash
-python tools/generar_pdfs.py
-python tools/generar_video.py
+python docs/tools/generar_pdfs.py
+python docs/tools/generar_video.py
 ```
 
 El video dura aproximadamente 125 segundos, usa voz `es-MX-JorgeNeural` y respeta el límite de tres minutos de la presentación.

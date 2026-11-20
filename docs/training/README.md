@@ -13,7 +13,7 @@ Este directorio contiene todo lo necesario para auditar, reproducir y entender l
 ## Estructura
 
 ```
-training/
+docs/training/
 ├── README.md                          Este índice
 ├── vision/
 │   ├── README.md                      Tarea, datos, modelo, métricas y artefactos

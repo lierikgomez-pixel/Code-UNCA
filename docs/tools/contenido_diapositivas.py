@@ -121,7 +121,7 @@ SLIDES = [
             "Producción: ONNX descargado e inferido en el navegador.",
             "Sin errores de consola y mismo hash ONNX local/producción.",
         ],
-        "nota": "Scripts: dart run evidencias/verificar_app.dart · dart run training/asistente/evaluar.dart",
+        "nota": "Scripts: dart run docs/evidencias/verificar_app.dart · dart run docs/training/asistente/evaluar.dart",
     },
     {
         "titulo": "Cierre",
@@ -159,7 +159,7 @@ FICHA_PAGINAS = [
             ("Asistente", "RAG local + few-shot. Base de 12 FAQs verificadas, contexto de foto, color y datos simulados. Diez casos reservados: base 1/10, adaptado 10/10; consistencia 10/10 en tres repeticiones."),
             ("Opinión comercial", "Reglas para «Sí, véndelo», «Probablemente sí, pero revisa», «Casi maduro», «Aún verde», «Revisa antes de vender», «No cumple para vender» y «No lo vendas aún» cuando el resultado es dudoso."),
         ],
-        "pie": "Evidencias: training/ · evidencias/ · docs/EVIDENCIAS_EVALUACION.md",
+        "pie": "Evidencias: docs/training/ · docs/evidencias/ · docs/EVIDENCIAS_EVALUACION.md",
     },
     {
         "titulo": "ENTREGABLES E INTEGRIDAD",
@@ -167,7 +167,7 @@ FICHA_PAGINAS = [
         "bloques": [
             ("Entregables", "Aplicación funcional e instrucciones; repositorio con dependencias; paquete de entrenamiento de ambos modelos; ficha PDF de 3 páginas; evidencias de evaluación; presentación PDF y video de 3 minutos."),
             ("HCI", "Usuario, tarea y contexto definidos; flujo de cinco pasos; tres decisiones justificadas; corrección humana en foto, color y recomendación. Protocolo con dos personas ajenas preparado y pendiente de ejecutar."),
-            ("NVIDIA", "Entrenamiento, AMP FP16, checkpoints y exportación ONNX en el servidor asignado. Pesos, métricas, clases y hash documentados en training/nvidia/."),
+            ("NVIDIA", "Entrenamiento, AMP FP16, checkpoints y exportación ONNX en el servidor asignado. Pesos, métricas, clases y hash documentados en docs/training/nvidia/."),
             ("Límites y TRL", "TRL 5: prototipo probado en entorno relevante con pares, sin validación en campo. Simulados: QR CoDi, link de pago y datos bancarios. No se usaron datos sensibles reales ni evidencias falsas."),
         ],
         "pie": "URL: https://code-unna.vercel.app/ · Repositorio: github.com/lierikgomez-pixel/Code-UNCA",

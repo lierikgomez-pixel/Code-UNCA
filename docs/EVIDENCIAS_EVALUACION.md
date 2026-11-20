@@ -11,10 +11,10 @@
 Script reproducible:
 
 ```bash
-dart run evidencias/verificar_app.dart
+dart run docs/evidencias/verificar_app.dart
 ```
 
-Resultado guardado en `evidencias/resultados_app.json`:
+Resultado guardado en `docs/evidencias/resultados_app.json`:
 
 | Indicador | Resultado |
 | --- | ---: |
@@ -56,7 +56,7 @@ Además de los casos automatizados se verificó en producción (https://code-unn
 
 ## 2. Modelo de visión por computadora
 
-Fuente: `training/vision/metricas.json` y logs del notebook de la GPU.
+Fuente: `docs/training/vision/metricas.json` y logs del notebook de la GPU.
 
 | Métrica | Resultado |
 | --- | ---: |
@@ -95,10 +95,10 @@ Fuente: `training/vision/metricas.json` y logs del notebook de la GPU.
 Script reproducible:
 
 ```bash
-dart run training/asistente/evaluar.dart
+dart run docs/training/asistente/evaluar.dart
 ```
 
-Resultado guardado en `training/asistente/resultados_evaluacion.json`:
+Resultado guardado en `docs/training/asistente/resultados_evaluacion.json`:
 
 | Indicador | Resultado |
 | --- | ---: |
@@ -148,11 +148,11 @@ La prueba con **dos personas ajenas al equipo** quedó **preparada pero pendient
 
 | Archivo | Contenido |
 | --- | --- |
-| `evidencias/verificar_app.dart` | 12 casos de app, errores y datos inválidos |
-| `evidencias/resultados_app.json` | Resultados reales de la app |
-| `training/vision/metricas.json` | Métricas, split, comparación y artefactos |
-| `training/vision/README.md` | Memoria técnica del modelo de visión |
-| `training/asistente/evaluar.dart` | 10 casos reservados y consistencia |
-| `training/asistente/resultados_evaluacion.json` | Resultados reales base vs adaptado |
-| `training/nvidia/README.md` | Entorno, comandos y artefactos NVIDIA |
+| `docs/evidencias/verificar_app.dart` | 12 casos de app, errores y datos inválidos |
+| `docs/evidencias/resultados_app.json` | Resultados reales de la app |
+| `docs/training/vision/metricas.json` | Métricas, split, comparación y artefactos |
+| `docs/training/vision/README.md` | Memoria técnica del modelo de visión |
+| `docs/training/asistente/evaluar.dart` | 10 casos reservados y consistencia |
+| `docs/training/asistente/resultados_evaluacion.json` | Resultados reales base vs adaptado |
+| `docs/training/nvidia/README.md` | Entorno, comandos y artefactos NVIDIA |
 | `docs/REPORTE_DETALLADO.md` | Contexto completo del entrenamiento y deploy |

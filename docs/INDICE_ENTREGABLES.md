@@ -6,7 +6,7 @@ Este índice mapea cada requerimiento de la presentación con el archivo que lo 
 | --- | --- | --- |
 | Aplicación funcional e instrucciones | App desplegada + guía de uso | https://code-unna.vercel.app/ · `docs/INSTRUCCIONES.md` |
 | Repositorio y dependencias | Código, `pubspec.yaml`, `pubspec.lock`, `vercel.json` | `github.com/lierikgomez-pixel/Code-UNCA` |
-| Paquete de entrenamiento de ambos modelos | Visión, asistente y NVIDIA | `training/README.md` |
+| Paquete de entrenamiento de ambos modelos | Visión, asistente y NVIDIA | `docs/training/README.md` |
 | Ficha PDF máximo 4 páginas | Ficha técnica | `docs/FICHA_TECNICA.pdf` |
 | Evidencias de evaluación | Resultados ejecutables | `docs/EVIDENCIAS_EVALUACION.md` |
 | Presentación PDF | 10 diapositivas | `docs/PRESENTACION.pdf` |
@@ -21,23 +21,23 @@ Este índice mapea cada requerimiento de la presentación con el archivo que lo 
 
 - Recorrido completo ingreso → procesamiento → revisión → confirmación: `docs/INSTRUCCIONES.md`.
 - Integración de ambos modelos: `docs/DOCUMENTACION_APP.md`, sección 7.
-- Pesos/adaptadores verificables: `training/vision/`, `training/nvidia/`.
+- Pesos/adaptadores verificables: `docs/training/vision/`, `docs/training/nvidia/`.
 - Corrección humana y errores: `docs/HCI_PRUEBA_USUARIOS.md`, `docs/EVIDENCIAS_EVALUACION.md`.
 
 ### Visión por computadora (diapositiva 10)
 
-- Tarea, modelo base, datos, split, entrenamiento y artefactos: `training/vision/README.md`.
-- Métricas: `training/vision/metricas.json`.
+- Tarea, modelo base, datos, split, entrenamiento y artefactos: `docs/training/vision/README.md`.
+- Métricas: `docs/training/vision/metricas.json`.
 
 ### Asistente conversacional (diapositiva 11)
 
-- Base, objetivos, fuentes y configuración: `training/asistente/README.md`.
-- Consistencia y comparación base vs adaptado: `training/asistente/resultados_evaluacion.json`.
+- Base, objetivos, fuentes y configuración: `docs/training/asistente/README.md`.
+- Consistencia y comparación base vs adaptado: `docs/training/asistente/resultados_evaluacion.json`.
 - Integración: `lib/screens/asistente.dart`.
 
 ### NVIDIA (diapositiva 12)
 
-- Entorno, comandos, AMP FP16 y artefactos: `training/nvidia/README.md`.
+- Entorno, comandos, AMP FP16 y artefactos: `docs/training/nvidia/README.md`.
 
 ### HCI (diapositiva 13)
 
@@ -46,9 +46,9 @@ Este índice mapea cada requerimiento de la presentación con el archivo que lo 
 
 ### Pruebas técnicas (diapositiva 14)
 
-- 12 casos de aplicación: `evidencias/resultados_app.json`.
-- Métricas y comparación de visión: `training/vision/metricas.json`.
-- 10 casos de asistente: `training/asistente/resultados_evaluacion.json`.
+- 12 casos de aplicación: `docs/evidencias/resultados_app.json`.
+- Métricas y comparación de visión: `docs/training/vision/metricas.json`.
+- 10 casos de asistente: `docs/training/asistente/resultados_evaluacion.json`.
 
 ### Presentación al jurado (diapositiva 17)
 

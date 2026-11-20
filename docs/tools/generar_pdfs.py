@@ -8,7 +8,7 @@ from reportlab.pdfgen import canvas
 
 from contenido_diapositivas import COLORES, FICHA_PAGINAS, SLIDES
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "docs"
 
 

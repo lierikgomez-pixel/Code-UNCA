@@ -79,8 +79,8 @@ mostrar la CLABE completa (solo los últimos 4 dígitos).
 - `docs/FICHA_TECNICA.pdf` — ficha de 3 páginas.
 - `docs/PRESENTACION.pdf` — presentación de 10 diapositivas.
 - `docs/VIDEO_CODE_UNCA.mp4` — video de sustentación de 125 segundos.
-- `training/` — paquete de entrenamiento de visión, asistente y NVIDIA.
-- `evidencias/` — script y resultados de 12 casos de la aplicación.
+- `docs/training/` — paquete de entrenamiento de visión, asistente y NVIDIA.
+- `docs/evidencias/` — script y resultados de 12 casos de la aplicación.
 
 ## Despliegue en Vercel
 

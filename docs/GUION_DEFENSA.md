@@ -103,7 +103,7 @@
 
 ### 3.2 Asistente (1:20–2:20)
 
-> «El asistente usa **RAG local más prompt engineering con few-shot**: una base de doce entradas verificadas y una capa de contexto con la última foto. Documentamos modelo base, objetivos, fuentes y configuración en `training/asistente/`.
+> «El asistente usa **RAG local más prompt engineering con few-shot**: una base de doce entradas verificadas y una capa de contexto con la última foto. Documentamos modelo base, objetivos, fuentes y configuración en `docs/training/asistente/`.
 > No afirmamos que hicimos LoRA; elegimos RAG porque corre sin internet y porque la trazabilidad de cada respuesta es explícita.
 > Probamos **diez casos reservados** y comparamos contra una base sin adaptar: la versión adaptada responde correctamente **10/10** contra **1/10** de la base. La comparación completa está en `docs/EVIDENCIAS_EVALUACION.md`.
 > La consistencia se revisó repitiendo cada pregunta tres veces con el mismo resultado.»
@@ -171,9 +171,9 @@
 | Integración de ambos modelos | 2.3 + 2.4 | Foto nueva + consulta nueva |
 | Pesos/adaptadores verificables | 3.1 | `outputs/mejor_modelo.pt`, ONNX |
 | Corrección humana y errores | 2.3 + P3 | Resultado dudoso, panel Mi opinión |
-| Visión: tarea, datos, split, entrenamiento | 3.1 | `training/vision/` |
-| Asistente: base, objetivos, fuentes, consistencia | 3.2 | `training/asistente/` |
-| NVIDIA: servidor, pesos, herramienta | 3.3 | `training/nvidia/` |
+| Visión: tarea, datos, split, entrenamiento | 3.1 | `docs/training/vision/` |
+| Asistente: base, objetivos, fuentes, consistencia | 3.2 | `docs/training/asistente/` |
+| NVIDIA: servidor, pesos, herramienta | 3.3 | `docs/training/nvidia/` |
 | HCI: usuario, tarea, 3 decisiones, 2 personas | 3.3 | `docs/EVIDENCIAS_EVALUACION.md` |
 | Pruebas técnicas: 5 app / visión / 10 asistente | 3.1–3.2 | `docs/EVIDENCIAS_EVALUACION.md` |
 | Declaración de IA e integridad | 3.4 + P9 | `docs/DECLARACION_IA.md` |

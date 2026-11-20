@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from contenido_diapositivas import COLORES, SLIDES
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs"
 OUT_VIDEO = DOCS / "VIDEO_CODE_UNCA.mp4"
 OUT_GUION = DOCS / "GUION_VIDEO.md"
@@ -186,7 +186,7 @@ def main():
     guion = ["# Guion del video — CODE UNCA", "", f"**Duración:** {final_duration:.0f} segundos · **Voz:** {VOZ}", "", "| # | Diapositiva | Narración |", "| --- | --- | --- |"]
     for i, (slide, texto) in enumerate(zip(SLIDES, NARRACION), 1):
         guion.append(f"| {i} | {slide['titulo']} | {texto} |")
-    guion += ["", "El video se genera con `python tools/generar_video.py`.", ""]
+    guion += ["", "El video se genera con `python docs/tools/generar_video.py`.", ""]
     OUT_GUION.write_text("\n".join(guion), encoding="utf-8")
     print(f"OK {OUT_GUION}")
 
