@@ -8,7 +8,7 @@ import 'models.dart';
 /// Estado local de la app. Todo se guarda en el teléfono (offline-first).
 class AppStore extends ChangeNotifier {
   SharedPreferences? _p;
-  String businessName = 'Mi negocio';
+  String businessName = '';
   String accountRef = ''; // CLABE o celular ligado a CoDi/DiMo
 
   // Datos bancarios de demostración. NUNCA guardes datos reales aquí.
@@ -29,6 +29,7 @@ class AppStore extends ChangeNotifier {
   Future<void> load() async {
     _p = await SharedPreferences.getInstance();
     businessName = _p!.getString('businessName') ?? businessName;
+    if (businessName == 'Mi negocio') businessName = '';
     accountRef = _p!.getString('accountRef') ?? '';
     bankName = _p!.getString('bankName') ?? '';
     bankClabe = _p!.getString('bankClabe') ?? '';
@@ -88,7 +89,7 @@ class AppStore extends ChangeNotifier {
   String newId() => DateTime.now().microsecondsSinceEpoch.toString();
 
   void setBusiness(String name, String ref) {
-    businessName = name.trim().isEmpty ? 'Mi negocio' : name.trim();
+    businessName = name.trim();
     accountRef = ref.trim();
     _commit();
   }

@@ -1,5 +1,5 @@
 name: flutter_application_1
-description: "LEDPago Limón Oaxaca: control de calidad de limón con IA."
+description: "CODI-UNCA: Comercio digital del limón en Oaxaca -Sierra de Flores Magón."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -63,10 +63,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

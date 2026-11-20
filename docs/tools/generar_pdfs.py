@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Genera la presentación PDF y la ficha técnica PDF de CODE UNCA."""
+"""Genera la presentación PDF y la ficha técnica PDF de CODI-UNCA."""
 from pathlib import Path
 
 from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.pdfgen import canvas
 
@@ -10,6 +11,7 @@ from contenido_diapositivas import COLORES, FICHA_PAGINAS, SLIDES
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "docs"
+LOGO = OUT / "logo.png"
 
 
 def rgb(t):
@@ -18,6 +20,13 @@ def rgb(t):
 
 def hexc(name):
     return rgb(COLORES[name])
+
+
+def draw_logo(c, right, bottom, alto):
+    reader = ImageReader(str(LOGO))
+    iw, ih = reader.getSize()
+    ancho = alto * iw / ih
+    c.drawImage(reader, right - ancho, bottom, width=ancho, height=alto, mask="auto")
 
 
 def wrap(text, font, size, max_width):
@@ -57,7 +66,7 @@ def draw_slide(c, slide, page, total):
 
     c.setFillColor(hexc("limon"))
     c.setFont("Helvetica-Bold", 10)
-    c.drawString(34, h - 28, slide.get("kicker", "CODE UNCA · Oaxaca").upper())
+    c.drawString(34, h - 28, slide.get("kicker", "CODI-UNCA · Oaxaca").upper())
 
     c.setFillColor(hexc("blanco"))
     c.setFont("Helvetica-Bold", 26 if not slide.get("portada") else 40)
@@ -67,12 +76,8 @@ def draw_slide(c, slide, page, total):
     c.setFont("Helvetica", 13)
     c.drawString(34, h - 94, slide["subtitulo"])
 
-    # Sello lateral.
-    c.setFillColor(hexc("limon"))
-    c.circle(w - 60, h - 62, 26, stroke=0, fill=1)
-    c.setFillColor(hexc("bosque"))
-    c.setFont("Helvetica-Bold", 16)
-    c.drawCentredString(w - 60, h - 68, "CU")
+    # Logo institucional.
+    draw_logo(c, w - 34, h - 84, 62)
 
     y = h - 165
     for i, bullet in enumerate(slide["bullets"], 1):
@@ -115,6 +120,8 @@ def draw_ficha_page(c, data, page, total):
     c.setFont("Helvetica", 11)
     c.drawString(40, h - 96, data["subtitulo"])
 
+    draw_logo(c, w - 40, h - 104, 70)
+
     y = h - 170
     for titulo, texto in data["bloques"]:
         c.setFillColor(hexc("bosque_claro"))
@@ -140,8 +147,8 @@ def main():
 
     pres = OUT / "PRESENTACION.pdf"
     c = canvas.Canvas(str(pres), pagesize=landscape(A4))
-    c.setTitle("CODE UNCA · Presentación")
-    c.setAuthor("Equipo CODE UNCA")
+    c.setTitle("CODI-UNCA · Presentación")
+    c.setAuthor("Equipo CODI-UNCA")
     for i, slide in enumerate(SLIDES, 1):
         draw_slide(c, slide, i, len(SLIDES))
     c.save()
@@ -149,8 +156,8 @@ def main():
 
     ficha = OUT / "FICHA_TECNICA.pdf"
     c = canvas.Canvas(str(ficha), pagesize=A4)
-    c.setTitle("CODE UNCA · Ficha técnica")
-    c.setAuthor("Equipo CODE UNCA")
+    c.setTitle("CODI-UNCA · Ficha técnica")
+    c.setAuthor("Equipo CODI-UNCA")
     for i, data in enumerate(FICHA_PAGINAS, 1):
         draw_ficha_page(c, data, i, len(FICHA_PAGINAS))
     c.save()

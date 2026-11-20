@@ -1,4 +1,4 @@
-# Modelo de visión por computadora — CODE UNCA
+# Modelo de visión por computadora — CODI-UNCA
 
 **Entregable:** paquete de entrenamiento del modelo de visión (diapositiva 10 de la presentación).
 

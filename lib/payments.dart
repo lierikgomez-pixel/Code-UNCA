@@ -151,7 +151,7 @@ Future<void> _speiDialog(BuildContext context, double amount, String ref, VoidCa
             const Text('Confirma solo cuando veas el depósito en tu banco.',
                 style: TextStyle(fontSize: 13, color: Colors.white70)),
           ])
-        : const Text('Para recibir transferencias, guarda tu CLABE de 18 dígitos en Mi negocio '
+        : const Text('Para recibir transferencias, guarda tu CLABE de 18 dígitos en Datos del negocio '
             '(el engrane en la pantalla Cobrar).'),
   );
 }

@@ -4,6 +4,20 @@ import 'models.dart';
 import 'store.dart';
 import 'theme.dart';
 
+/// Logo institucional reutilizable en toda la app.
+class BrandLogo extends StatelessWidget {
+  final double size;
+  const BrandLogo({super.key, this.size = 34});
+
+  @override
+  Widget build(BuildContext context) => Image.asset(
+        'assets/logo.png',
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+      );
+}
+
 /// Tarjeta oscura translúcida.
 class Panel extends StatelessWidget {
   final Widget child;
@@ -71,13 +85,30 @@ class HeroTitle extends StatelessWidget {
   const HeroTitle({super.key, required this.kicker, required this.title, required this.subtitle});
 
   @override
-  Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(kicker, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 3)),
-        Text(title,
-            style: const TextStyle(fontSize: 68, fontWeight: FontWeight.w900, height: 1.0, letterSpacing: -1)),
-        const SizedBox(height: 6),
-        Text(subtitle, style: const TextStyle(fontSize: 16, height: 1.3)),
-      ]);
+  Widget build(BuildContext context) => Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const BrandLogo(size: 64),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(kicker, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 3)),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(title,
+                      style: const TextStyle(
+                          fontSize: 68, fontWeight: FontWeight.w900, height: 1.0, letterSpacing: -1)),
+                ),
+                const SizedBox(height: 6),
+                Text(subtitle, style: const TextStyle(fontSize: 16, height: 1.3)),
+              ],
+            ),
+          ),
+        ],
+      );
 }
 
 /// Muestra el QR de cobro. [onPaid] se llama cuando el comerciante confirma el pago.

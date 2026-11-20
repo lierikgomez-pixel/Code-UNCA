@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Contenido único para la presentación PDF, la ficha y el video."""
 
-TITULO = "CODE UNCA"
+TITULO = "CODI-UNCA"
 SUBTITULO = "Comercio digital del limón"
-KICKER = "Oaxaca · Sierra de Flores Magón"
+KICKER = "OAXACA -SIERRA DE FLORES MAGÓN"
 COLORES = {
     "bosque": (8, 43, 36),
     "bosque_claro": (18, 78, 64),
@@ -140,8 +140,8 @@ SLIDES = [
 
 FICHA_PAGINAS = [
     {
-        "titulo": "FICHA TÉCNICA · CODE UNCA",
-        "subtitulo": "Comercio digital del limón · Oaxaca, Sierra de Flores Magón",
+        "titulo": "FICHA TÉCNICA · CODI-UNCA",
+        "subtitulo": "Comercio digital del limón · OAXACA -SIERRA DE FLORES MAGÓN",
         "bloques": [
             ("Problema", "El productor decide la venta de la fruta con su criterio visual y cobra sin dejar historial digital útil. La Ley de Economía Digital de 2026 empuja a aceptar pagos digitales sin eliminar el efectivo."),
             ("Usuario y tarea", "Productor o acopiador de limón de 2 a 100 kg diarios. Su tarea crítica es clasificar la fruta y cobrarla en el mismo momento, con una explicación que pueda corregir."),

@@ -49,7 +49,7 @@ class _CobrarScreenState extends State<CobrarScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.bosqueProfundo,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        title: const Text('CODE UNCA · Mi negocio'),
+        title: const Text('CODI-UNCA'),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -135,21 +135,19 @@ class _CobrarScreenState extends State<CobrarScreen> {
               children: [
                 Row(
                   children: [
-                    const Text('🍋', style: TextStyle(fontSize: 30)),
-                    const SizedBox(width: 8),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            store.businessName,
+                            store.businessName.isEmpty ? 'CODI-UNCA' : store.businessName,
                             style: const TextStyle(
                               fontWeight: FontWeight.w800,
                               fontSize: 16,
                             ),
                           ),
                           const Text(
-                            'CODE UNCA · Oaxaca',
+                            'OAXACA -SIERRA DE FLORES MAGÓN',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.white70,
@@ -161,7 +159,7 @@ class _CobrarScreenState extends State<CobrarScreen> {
                     IconButton(
                       onPressed: _settings,
                       icon: const Icon(Icons.settings_outlined),
-                      tooltip: 'Mi negocio',
+                      tooltip: 'Datos del negocio',
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -194,8 +192,8 @@ class _CobrarScreenState extends State<CobrarScreen> {
                 ),
                 const SizedBox(height: 28),
                 const HeroTitle(
-                  kicker: 'OAXACA Y SIERRA DE FLORES MAGÓN',
-                  title: 'CODE UNCA',
+                  kicker: 'OAXACA -SIERRA DE FLORES MAGÓN',
+                  title: 'CODI-UNCA',
                   subtitle: 'Comercio digital del limón.',
                 ),
                 const SizedBox(height: 20),

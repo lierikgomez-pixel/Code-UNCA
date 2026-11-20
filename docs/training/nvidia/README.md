@@ -1,4 +1,4 @@
-# Contribución técnica NVIDIA — CODE UNCA
+# Contribución técnica NVIDIA — CODI-UNCA
 
 **Entregable:** entrenamiento y ajuste en servidor asignado, pesos y registros guardados, uso de herramienta NVIDIA y documentación técnica (diapositiva 12).
 

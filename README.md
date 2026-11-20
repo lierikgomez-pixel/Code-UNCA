@@ -1,6 +1,6 @@
-# CODE UNCA — Comercio digital del limón
+# CODI-UNCA — Comercio digital del limón
 
-Oaxaca y Sierra de Flores Magón.
+Oaxaca -Sierra de Flores Magón.
 
 App Flutter (cobro, pedidos, control de calidad, asistente y aprendizaje) para
 productores de limón/lima (*Citrus aurantiifolia*).
@@ -61,7 +61,7 @@ pantalla **Calidad** muestra el mismo criterio en el panel **Mi opinión**. El
 color detectado actúa como segunda opinión (`amarillando` matiza `verde`;
 `manchas` puede revertir `maduro`).
 
-Desde **Cobrar → Mi negocio** el vendedor puede capturar banco, CLABE y titular
+Desde **Cobrar → Datos del negocio** el vendedor puede capturar banco, CLABE y titular
 **solo como simulación local**; el asistente menciona el estado de esos datos sin
 mostrar la CLABE completa (solo los últimos 4 dígitos).
 
@@ -78,7 +78,7 @@ mostrar la CLABE completa (solo los últimos 4 dígitos).
 - `docs/DECLARACION_IA.md` — transparencia sobre el uso de IA.
 - `docs/FICHA_TECNICA.pdf` — ficha de 3 páginas.
 - `docs/PRESENTACION.pdf` — presentación de 10 diapositivas.
-- `docs/VIDEO_CODE_UNCA.mp4` — video de sustentación de 125 segundos.
+- `docs/VIDEO_CODI_UNCA.mp4` — video de sustentación de 125 segundos.
 - `docs/training/` — paquete de entrenamiento de visión, asistente y NVIDIA.
 - `docs/evidencias/` — script y resultados de 12 casos de la aplicación.
 

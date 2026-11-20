@@ -1,4 +1,4 @@
-# Asistente conversacional — CODE UNCA
+# Asistente conversacional — CODI-UNCA
 
 **Entregable:** paquete de entrenamiento del asistente (diapositiva 11 de la presentación).
 
