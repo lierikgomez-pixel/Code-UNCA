@@ -5,9 +5,23 @@ Oaxaca -Sierra de Flores Magón.
 App Flutter (cobro, pedidos, control de calidad, asistente y aprendizaje) para
 productores de limón/lima (*Citrus aurantiifolia*).
 
+## Estructura del repositorio
+
+```text
+README.md
+presentacion.pdf
+Video-de-demostracion.mp4
+01-definicion_proyecto/   → alcance, guion, instrucciones, IA, ficha
+02-modelos_IA/            → visión, asistente y arquitectura
+03-interfaz/              → usuarios e interacción
+04-propuesta_negocio/     → propuesta.md y propuesta.pdf
+lib/ assets/ web/ build/  → aplicación Flutter y despliegue
+tools/                    → scripts para regenerar entregables
+```
+
 ## Modelo de control de calidad integrado
 
-La pestaña **Calidad** clasifica cada foto en cuatro clases con un modelo
+La sección **Calidad** clasifica cada foto en cuatro clases con un modelo
 EfficientNet-B0 entrenado con PyTorch y exportado a ONNX:
 
 | Clase | Significado |
@@ -67,20 +81,20 @@ mostrar la CLABE completa (solo los últimos 4 dígitos).
 
 ## Documentación y entregables del hackathon
 
-- `docs/INDICE_ENTREGABLES.md` — mapa de requerimientos ↔ archivos.
-- `docs/DOCUMENTACION_APP.md` — guía funcional y técnica de la aplicación.
-- `docs/REPORTE_DETALLADO.md` — entrenamiento en GPU, métricas, cambios,
+- `01-definicion_proyecto/indice_entregables.md` — mapa de requerimientos ↔ archivos.
+- `03-interfaz/02-interaccion/documentacion_app.md` — guía funcional y técnica de la aplicación.
+- `01-definicion_proyecto/reporte_detallado.md` — entrenamiento en GPU, métricas, cambios,
   incidencias y verificación del despliegue.
-- `docs/GUION_DEFENSA.md` — guion de 15 minutos para sustentar ante el jurado.
-- `docs/INSTRUCCIONES.md` — uso e instalación de la app.
-- `docs/EVIDENCIAS_EVALUACION.md` — resultados ejecutables de app, visión y asistente.
-- `docs/HCI_PRUEBA_USUARIOS.md` — usuario, flujo, decisiones y protocolo con usuarios.
-- `docs/DECLARACION_IA.md` — transparencia sobre el uso de IA.
-- `docs/FICHA_TECNICA.pdf` — ficha de 3 páginas.
-- `docs/PRESENTACION.pdf` — presentación de 10 diapositivas.
-- `docs/VIDEO_CODI_UNCA.mp4` — video de sustentación de 125 segundos.
-- `docs/training/` — paquete de entrenamiento de visión, asistente y NVIDIA.
-- `docs/evidencias/` — script y resultados de 12 casos de la aplicación.
+- `01-definicion_proyecto/guion_defensa.md` — guion de 15 minutos para sustentar ante el jurado.
+- `01-definicion_proyecto/instrucciones.md` — uso e instalación de la app.
+- `02-modelos_IA/01-modelo_vision/evaluacion/EVIDENCIAS_EVALUACION.md` — resultados ejecutables de app, visión y asistente.
+- `03-interfaz/01-usuarios/hci_prueba_usuarios.md` — usuario, flujo, decisiones y protocolo con usuarios.
+- `01-definicion_proyecto/declaracion_ia.md` — transparencia sobre el uso de IA.
+- `01-definicion_proyecto/ficha_tecnica.pdf` — ficha de 3 páginas.
+- `presentacion.pdf` — presentación de 10 diapositivas.
+- `Video-de-demostracion.mp4` — video de sustentación de 125 segundos.
+- `02-modelos_IA/` — paquete de entrenamiento de visión, asistente y NVIDIA.
+- `02-modelos_IA/01-modelo_vision/evaluacion/` — script y resultados de 12 casos de la aplicación.
 
 ## Despliegue en Vercel
 
