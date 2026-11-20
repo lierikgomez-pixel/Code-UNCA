@@ -65,11 +65,22 @@ Desde **Cobrar → Mi negocio** el vendedor puede capturar banco, CLABE y titula
 **solo como simulación local**; el asistente menciona el estado de esos datos sin
 mostrar la CLABE completa (solo los últimos 4 dígitos).
 
-## Documentación
+## Documentación y entregables del hackathon
 
+- `docs/INDICE_ENTREGABLES.md` — mapa de requerimientos ↔ archivos.
 - `docs/DOCUMENTACION_APP.md` — guía funcional y técnica de la aplicación.
 - `docs/REPORTE_DETALLADO.md` — entrenamiento en GPU, métricas, cambios,
   incidencias y verificación del despliegue.
+- `docs/GUION_DEFENSA.md` — guion de 15 minutos para sustentar ante el jurado.
+- `docs/INSTRUCCIONES.md` — uso e instalación de la app.
+- `docs/EVIDENCIAS_EVALUACION.md` — resultados ejecutables de app, visión y asistente.
+- `docs/HCI_PRUEBA_USUARIOS.md` — usuario, flujo, decisiones y protocolo con usuarios.
+- `docs/DECLARACION_IA.md` — transparencia sobre el uso de IA.
+- `docs/FICHA_TECNICA.pdf` — ficha de 3 páginas.
+- `docs/PRESENTACION.pdf` — presentación de 10 diapositivas.
+- `docs/VIDEO_CODE_UNCA.mp4` — video de sustentación de 125 segundos.
+- `docs/training/` — paquete de entrenamiento de visión, asistente y NVIDIA.
+- `docs/evidencias/` — script y resultados de 12 casos de la aplicación.
 
 ## Despliegue en Vercel
 

@@ -1,0 +1,69 @@
+{
+  "tarea": "clasificacion_de_imagenes",
+  "clases": ["maduro", "podrido", "sin_limon", "verde"],
+  "modelo_base": "EfficientNet-B0 (torchvision, pesos ImageNet)",
+  "dataset": {
+    "nombre": "ritikb2211/final-dataset",
+    "fuente": "Kaggle publico, sin token",
+    "imagenes_validas": 6032,
+    "por_clase": {
+      "maduro": 2758,
+      "podrido": 1498,
+      "verde": 1462,
+      "sin_limon": 313
+    },
+    "division": {
+      "entrenamiento": 4523,
+      "validacion": 904,
+      "prueba": 604
+    }
+  },
+  "entrenamiento": {
+    "dispositivo": "NVIDIA Tesla T4",
+    "cuda": "12.1",
+    "pytorch": "2.5.1+cu121",
+    "torchvision": "0.20.1+cu121",
+    "precision": "AMP FP16",
+    "epocas_programadas": 12,
+    "paciencia_early_stopping": 5,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.08,
+    "dropout": 0.35,
+    "batch_size": 64,
+    "optimizador": "AdamW",
+    "num_workers": 0,
+    "resize_entrenamiento": "RandomResizedCrop(0.55-1.0) + copy a 256px",
+    "input_onnx": [1, 3, 224, 224]
+  },
+  "resultado_prueba": {
+    "accuracy": 0.9868,
+    "f1_macro": 0.9897,
+    "recall_sin_limon": 1.0,
+    "aciertos_estimados": 596,
+    "errores_estimados": 8,
+    "total_prueba": 604,
+    "nota": "Los aciertos y errores se derivan del accuracy reportado sobre 604 imagenes."
+  },
+  "comparacion": {
+    "baseline_clasico": {
+      "metodo": "color y forma (HSV + caracteristicas)",
+      "accuracy": 0.9551,
+      "f1_macro": 0.9566
+    },
+    "modelo_onnx": {
+      "accuracy": 0.9868,
+      "f1_macro": 0.9897
+    },
+    "ganancia_accuracy": 0.0317,
+    "ganancia_f1_macro": 0.0331
+  },
+  "artefactos": {
+    "pesos_pytorch": "outputs/mejor_modelo.pt",
+    "modelo_onnx": "outputs/modelo_limon.onnx",
+    "clases": "outputs/class_names.json",
+    "registro_caracteristicas": "outputs/features.csv",
+    "sha256_onnx": "E243791EFA3755440B6FAD171DEEA67AD85915E33C940B3E79B26EA2EA72F810",
+    "tamano_onnx_bytes": 16040694
+  }
+}

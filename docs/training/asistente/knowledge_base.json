@@ -1,0 +1,84 @@
+{
+  "nombre": "Base de conocimiento local de CODE UNCA",
+  "version": "1.0.0",
+  "fuente": "lib/services/knowledge.dart",
+  "enfoque": "RAG local + prompt engineering con few-shot",
+  "normalizacion": "minusculas, sin tildes ni enye, caracteres no alfanumericos -> espacio",
+  "stopwords": ["como", "que", "el", "la", "los", "las", "de", "para", "es", "un", "una", "por", "con", "en", "y", "o"],
+  "faqs": [
+    {
+      "id": 1,
+      "tema": "Obligatoriedad de tarjeta y ley",
+      "palabras_clave": ["obligatorio", "obliga", "obligan", "tarjeta", "ley", "multa", "castigo"],
+      "respuesta": "No. La ley busca promover que más negocios acepten pagos digitales, pero no prohíbe el efectivo. Si aceptas QR, tus compradores de limón pueden pagarte al instante y empiezas a tener historial."
+    },
+    {
+      "id": 2,
+      "tema": "CoDi y DiMo",
+      "palabras_clave": ["codi", "dimo", "comision", "comisiones", "gratis", "cuesta"],
+      "respuesta": "CoDi y DiMo son pagos desde el celular del comprador, a cualquier hora. Según la información del proyecto, no pagas comisión por recibirlos. Confirma las condiciones con tu banco."
+    },
+    {
+      "id": 3,
+      "tema": "Cuenta Nivel 2 Bis",
+      "palabras_clave": ["cuenta", "nivel", "bis", "limite", "udi", "udis", "historial", "banco"],
+      "respuesta": "La Cuenta Nivel 2 Bis es para pequeños comercios. Permite recibir hasta 15,000 UDIs al mes (unos 130,000 pesos), y al menos 105,000 pesos deben venir de pagos digitales. Cada venta de limón con QR cuenta. Confirma las reglas vigentes con tu banco o con Banxico."
+    },
+    {
+      "id": 4,
+      "tema": "Cómo cobrar con QR",
+      "palabras_clave": ["cobrar", "cobro", "qr", "como", "comprador", "cliente", "acopiador"],
+      "respuesta": "Para cobrar: 1) Entra a Cobrar. 2) Escribe el monto. 3) Toca Generar QR. 4) El comprador escanea. 5) Toca Ya me pagaron."
+    },
+    {
+      "id": 5,
+      "tema": "Métodos de pago",
+      "palabras_clave": ["metodo", "metodos", "pago", "pagos", "spei", "transferencia", "link", "efectivo", "tarjeta", "cambio"],
+      "respuesta": "En Cobrar eliges cómo te paga el comprador: QR, transferencia SPEI a tu CLABE, link de pago, tarjeta en tu terminal o efectivo con cálculo de cambio. Todo lo digital cuenta para tu historial."
+    },
+    {
+      "id": 6,
+      "tema": "Precios y unidades",
+      "palabras_clave": ["precio", "precios", "kilo", "kilos", "costal", "caja", "bolsa", "vender"],
+      "respuesta": "El precio del limón cambia seguido. En Pedidos, agrega cada producto con su unidad (kilo, costal, caja o bolsa) y actualiza el precio cuando cambie."
+    },
+    {
+      "id": 7,
+      "tema": "Pedidos",
+      "palabras_clave": ["pedido", "pedidos", "catalogo", "producto", "productos"],
+      "respuesta": "En Pedidos agregas tus productos de limón con precio. Cuando alguien te hace un pedido, eliges cuánto lleva y le muestras el QR para que pague."
+    },
+    {
+      "id": 8,
+      "tema": "Frescura y calidad por foto",
+      "palabras_clave": ["fresco", "fresca", "calidad", "color", "verde", "amarillo", "amarillando", "limon", "limones", "manchas", "foto", "camara", "maduro", "pasado"],
+      "respuesta": "Entra a Calidad y toma una foto del limón sobre un fondo claro y con buena luz. Te dice si está verde y firme, amarillando o con manchas. Es una guía; la decisión final es tuya."
+    },
+    {
+      "id": 9,
+      "tema": "Tipos de limón",
+      "palabras_clave": ["tipo", "tipos", "variedad", "variedades", "persa", "mexicano", "criollo", "semilla", "jugo"],
+      "respuesta": "Los principales son el limón persa y el limón mexicano. El persa es más grande, sin semilla y muy jugoso; el mexicano es más pequeño, ácido y típico de la Sierra de Flores Magón. En Pedidos puedes registrar ambos con su precio del día."
+    },
+    {
+      "id": 10,
+      "tema": "Ley de comercio digital y Banxico",
+      "palabras_clave": ["ley", "comercio", "digital", "pagos digitales", "banxico", "nivel 2 bis", "reglas"],
+      "respuesta": "La ley de comercio digital promueve que más negocios acepten pagos digitales, pero no prohíbe el efectivo. Para pequeños comercios existe la Cuenta Nivel 2 Bis, que te ayuda a construir historial con cada venta. Confirma montos y reglas vigentes con Banxico o tu banco."
+    },
+    {
+      "id": 11,
+      "tema": "Datos bancarios simulados",
+      "palabras_clave": ["banco", "clabe", "datos", "bancarios", "titular", "agregar", "agrego", "simulacion", "simular"],
+      "respuesta": "En CODE UNCA puedes agregar tus datos bancarios como simulación desde el botón de configuración de Cobrar. Guarda banco, CLABE y titular solo en tu dispositivo. No escribas datos reales ni los compartas."
+    },
+    {
+      "id": 12,
+      "tema": "Saludo y ayuda",
+      "palabras_clave": ["hola", "ayuda", "buenas", "puedes"],
+      "respuesta": "Puedo explicarte cómo cobrar con QR, cómo registrar tus pedidos de limón, qué es CoDi, la Cuenta Nivel 2 Bis y qué dice la ley de pagos digitales."
+    }
+  ],
+  "respuesta_por_defecto": "No estoy seguro de eso. Puedes preguntarme cómo cobrar con QR, cómo registrar pedidos de limón, qué es CoDi o la Cuenta Nivel 2 Bis.",
+  "regla_de_contexto": "Si la pregunta menciona foto, calidad, resultado, banco, clabe o datos y hay contexto disponible, se antepone el contexto de la última foto o del estado bancario simulado (solo últimos 4 dígitos de CLABE)."
+}
