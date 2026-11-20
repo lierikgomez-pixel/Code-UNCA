@@ -1,0 +1,108 @@
+{
+  "total_casos": 12,
+  "casos_pasados": 12,
+  "casos_fallidos": 0,
+  "incluye": [
+    "casos normales",
+    "errores",
+    "datos invalidos"
+  ],
+  "casos": [
+    {
+      "id": "APP-01",
+      "caso": "Formatear importe de venta",
+      "tipo": "normal",
+      "esperado": "$180.50",
+      "obtenido": "$180.50",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-02",
+      "caso": "Calcular total de pedido",
+      "tipo": "normal",
+      "esperado": "350.0",
+      "obtenido": "350.0",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-03",
+      "caso": "Resumen de pedido",
+      "tipo": "normal",
+      "esperado": "12.5 kg de Limón persa",
+      "obtenido": "12.5 kg de Limón persa",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-04",
+      "caso": "Opinión sin foto",
+      "tipo": "error",
+      "esperado": "Aún no tengo una foto",
+      "obtenido": "Aún no tengo una foto",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-05",
+      "caso": "Confianza baja se abstiene",
+      "tipo": "error",
+      "esperado": "Resultado dudoso",
+      "obtenido": "Resultado dudoso",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-06",
+      "caso": "Posible falso negativo de sin_limon",
+      "tipo": "dato_invalido",
+      "esperado": "true",
+      "obtenido": "true",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-07",
+      "caso": "Etiqueta de falso negativo",
+      "tipo": "dato_invalido",
+      "esperado": "Resultado dudoso",
+      "obtenido": "Resultado dudoso",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-08",
+      "caso": "Limón dañado",
+      "tipo": "normal",
+      "esperado": "No cumple para vender",
+      "obtenido": "No cumple para vender",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-09",
+      "caso": "Verde amarillando",
+      "tipo": "normal",
+      "esperado": "Casi maduro",
+      "obtenido": "Casi maduro",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-10",
+      "caso": "Maduro con manchas",
+      "tipo": "dato_invalido",
+      "esperado": "Revisa antes de vender",
+      "obtenido": "Revisa antes de vender",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-11",
+      "caso": "Maduro con confianza intermedia",
+      "tipo": "normal",
+      "esperado": "Probablemente sí, pero revisa",
+      "obtenido": "Probablemente sí, pero revisa",
+      "resultado": "paso"
+    },
+    {
+      "id": "APP-12",
+      "caso": "Pregunta fuera de dominio",
+      "tipo": "error",
+      "esperado": "true",
+      "obtenido": "true",
+      "resultado": "paso"
+    }
+  ]
+}

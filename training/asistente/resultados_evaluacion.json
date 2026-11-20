@@ -1,0 +1,89 @@
+{
+  "enfoque": "RAG local + prompt engineering con few-shot",
+  "total_casos": 10,
+  "aciertos_base": 1,
+  "aciertos_adaptado": 10,
+  "casos_consistentes": 10,
+  "casos": [
+    {
+      "tema": "Ley y efectivo",
+      "pregunta": "Es obligatorio aceptar tarjeta?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "No. La ley busca promover que más negocios acepten pagos digitales, pero no prohíbe el efe"
+    },
+    {
+      "tema": "CoDi",
+      "pregunta": "Que es CoDi y cuanto cuesta?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "CoDi y DiMo son pagos desde el celular del comprador, a cualquier hora. Según la informaci"
+    },
+    {
+      "tema": "Cuenta Nivel 2 Bis",
+      "pregunta": "Cuenta Nivel 2 Bis limite de pagos digitales",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "La Cuenta Nivel 2 Bis es para pequeños comercios. Permite recibir hasta 15,000 UDIs al mes"
+    },
+    {
+      "tema": "Cobro con QR",
+      "pregunta": "Como cobro con QR a mi comprador?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "Para cobrar: 1) Entra a Cobrar. 2) Escribe el monto. 3) Toca Generar QR. 4) El comprador e"
+    },
+    {
+      "tema": "Métodos de pago",
+      "pregunta": "Que metodos de pago puedo usar?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "En Cobrar eliges cómo te paga el comprador: QR, transferencia SPEI a tu CLABE, link de pag"
+    },
+    {
+      "tema": "Precios y unidades",
+      "pregunta": "A cuanto vendo el kilo de limon?",
+      "base": "acierto",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "El precio del limón cambia seguido. En Pedidos, agrega cada producto con su unidad (kilo, "
+    },
+    {
+      "tema": "Pedidos",
+      "pregunta": "Como registro un pedido de limon?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "En Pedidos agregas tus productos de limón con precio. Cuando alguien te hace un pedido, el"
+    },
+    {
+      "tema": "Frescura",
+      "pregunta": "Mi limon esta amarillando, sirve?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "Entra a Calidad y toma una foto del limón sobre un fondo claro y con buena luz. Te dice si"
+    },
+    {
+      "tema": "Tipos de limón",
+      "pregunta": "Cual es la diferencia entre limon persa y mexicano?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "Los principales son el limón persa y el limón mexicano. El persa es más grande, sin semill"
+    },
+    {
+      "tema": "Datos simulados",
+      "pregunta": "Donde agrego mis datos bancarios?",
+      "base": "error",
+      "adaptado": "acierto",
+      "consistente_3_repeticiones": true,
+      "fragmento_respuesta": "En CODE UNCA puedes agregar tus datos bancarios como simulación desde el botón de configur"
+    }
+  ]
+}
