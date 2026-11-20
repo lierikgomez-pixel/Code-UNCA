@@ -85,13 +85,7 @@ class PedidosScreen extends StatelessWidget {
     return ListenableBuilder(
       listenable: store,
       builder: (context, _) => Scaffold(
-        appBar: AppBar(
-          leading: const Padding(
-            padding: EdgeInsets.all(8),
-            child: BrandLogo(size: 30),
-          ),
-          title: const Text('Pedidos de limón'),
-        ),
+        appBar: AppBar(title: const Text('Pedidos de limón')),
         body: ListView(padding: const EdgeInsets.fromLTRB(20, 8, 20, 24), children: [
           PillButton(
             label: 'Nuevo pedido',

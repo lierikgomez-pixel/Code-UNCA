@@ -108,13 +108,7 @@ class _CalidadScreenState extends State<CalidadScreen> {
             color: classic == null ? null : _colorTexto(classic.level),
           );
     return Scaffold(
-      appBar: AppBar(
-        leading: const Padding(
-          padding: EdgeInsets.all(8),
-          child: BrandLogo(size: 30),
-        ),
-        title: const Text('Calidad del limón'),
-      ),
+      appBar: AppBar(title: const Text('Calidad del limón')),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
         children: [

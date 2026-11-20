@@ -135,8 +135,6 @@ class _CobrarScreenState extends State<CobrarScreen> {
               children: [
                 Row(
                   children: [
-                    const BrandLogo(size: 34),
-                    const SizedBox(width: 8),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
