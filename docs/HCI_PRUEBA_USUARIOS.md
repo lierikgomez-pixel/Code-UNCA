@@ -1,4 +1,4 @@
-# HCI y experiencia de usuario — CODE UNCA
+# HCI y experiencia de usuario — CODI-UNCA
 
 **Entregable:** definición de usuario/tarea/contexto, flujo, tres decisiones justificadas, corrección humana y protocolo de prueba con dos personas ajenas al equipo (diapositiva 13).
 

@@ -1,4 +1,4 @@
-# Instrucciones de uso e instalación — CODE UNCA
+# Instrucciones de uso e instalación — CODI-UNCA
 
 **Entregable:** aplicación funcional e instrucciones; repositorio y dependencias.
 **Versión:** 1.0.0+1 · **URL pública:** https://code-unna.vercel.app/

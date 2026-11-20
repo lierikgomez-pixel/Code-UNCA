@@ -1,4 +1,4 @@
-# Declaración de uso de IA — CODE UNCA
+# Declaración de uso de IA — CODI-UNCA
 
 **Entregable:** transparencia sobre el uso de IA durante el hackathon (reglas de autonomía, diapositivas 7, 45 y 46 de la presentación).
 

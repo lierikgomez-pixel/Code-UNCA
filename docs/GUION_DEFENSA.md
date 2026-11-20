@@ -1,4 +1,4 @@
-# Guion de defensa ante el jurado — CODE UNCA
+# Guion de defensa ante el jurado — CODI-UNCA
 
 **Duración total:** 15 minutos (2 + 4 + 4 + 5)
 **Formato según la presentación del hackathon:** problema/usuario/solución, demostración, entrenamiento-evaluación-diseño y preguntas.
@@ -35,7 +35,7 @@
 
 ### 1.3 Solución (1:10–2:00)
 
-> «CODE UNCA es una app Flutter con cinco pantallas: **Cobrar, Pedidos, Calidad, Asistente y Aprender**.
+> «CODI-UNCA es una app Flutter con cinco pantallas: **Cobrar, Pedidos, Calidad, Asistente y Aprender**.
 > Toma una foto → un modelo de visión entrenado en GPU dice si el limón está verde, maduro, podrido o si no hay fruta → un asistente con contexto opina si se vende, ayuda a venderlo y dice cuándo no cumple → el cobro queda registrado y alimenta el historial digital.
 >
 > Dos decisiones que queremos defender hoy: **la IA corre en el navegador, sin servidor GPU en producción**, y **la recomendación siempre es corregible por el humano**. El panel *Mi opinión* lo dice literalmente: "Es una segunda opinión. La decisión final es tuya."»
@@ -48,7 +48,7 @@
 
 ### 2.1 Cobrar (0:00–0:45) — 45 s
 
-1. Abrir la URL y señalar el hero: **CODE UNCA · Oaxaca y Sierra de Flores Magón · Comercio digital del limón.**
+1. Abrir la URL y señalar el hero: **CODI-UNCA · Oaxaca -Sierra de Flores Magón · Comercio digital del limón.**
 2. Capturar monto `180`, concepto `Venta de limón`.
 3. Tocar **Cobrar** → hoja «¿Cómo te paga?».
 4. Elegir **QR** → mostrar el QR → **Ya me pagaron**.
@@ -159,7 +159,7 @@
 
 > «No construimos una app para *tener* una app. Construimos una herramienta para que un productor de limón de la Sierra decida mejor y cobre con historial.
 > Si el modelo duda, lo decimos. Si la IA opina, el humano decide. Si algo es simulado, lo declaramos.
-> Eso es CODE UNCA. Gracias.»
+> Eso es CODI-UNCA. Gracias.»
 
 ---
 

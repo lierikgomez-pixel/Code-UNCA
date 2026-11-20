@@ -1,10 +1,10 @@
-# Guion del video — CODE UNCA
+# Guion del video — CODI-UNCA
 
 **Duración:** 125 segundos · **Voz:** es-MX-JorgeNeural
 
 | # | Diapositiva | Narración |
 | --- | --- | --- |
-| 1 | CODE UNCA | CODE UNCA es comercio digital del limón para Oaxaca y la Sierra de Flores Magón. Clasificamos la fruta con inteligencia artificial local y cobramos con historial. |
+| 1 | CODI-UNCA | CODI-UNCA es comercio digital del limón para Oaxaca -Sierra de Flores Magón. Clasificamos la fruta con inteligencia artificial local y cobramos con historial. |
 | 2 | Problema y usuario | El productor decide cuándo vender mirando el limón y cobra sin dejar un historial útil. Nuestra tarea es ayudarlo a clasificar y cobrar en el mismo momento. |
 | 3 | Nuestra solución | La aplicación tiene cinco pantallas: Cobrar, Pedidos, Calidad, Asistente y Aprender. La foto se analiza, el asistente opina y cada venta suma al historial digital. |
 | 4 | Demostración en vivo | El recorrido es sencillo: cobrar ciento ochenta pesos con código QR, crear un pedido de doce kilos y medio, tomar una foto nueva y preguntar si se vende. |

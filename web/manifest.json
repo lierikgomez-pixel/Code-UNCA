@@ -1,11 +1,11 @@
 {
-    "name": "flutter_application_1",
-    "short_name": "flutter_application_1",
+    "name": "CODI-UNCA · Comercio digital del limón",
+    "short_name": "CODI-UNCA",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#082B24",
+    "theme_color": "#082B24",
+    "description": "Control de calidad de limón con IA para productores de Oaxaca -Sierra de Flores Magón.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

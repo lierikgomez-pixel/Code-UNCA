@@ -1,4 +1,4 @@
-# Reporte detallado — CODE UNCA
+# Reporte detallado — CODI-UNCA
 
 **Fecha:** 20 de noviembre de 2026
 **Commit final:** `2b02e32` — *Mejorar modelo ONNX y opinión comercial del asistente*
@@ -8,7 +8,7 @@
 
 ## 1. Resumen ejecutivo
 
-Se mejoró el modelo de control de calidad de limón de **CODE UNCA** reentrenándolo en una GPU NVIDIA Tesla T4 y se conectó una **opinión comercial** al asistente y a la pantalla de calidad. El resultado quedó desplegado en Vercel y verificado de extremo a extremo en el navegador.
+Se mejoró el modelo de control de calidad de limón de **CODI-UNCA** reentrenándolo en una GPU NVIDIA Tesla T4 y se conectó una **opinión comercial** al asistente y a la pantalla de calidad. El resultado quedó desplegado en Vercel y verificado de extremo a extremo en el navegador.
 
 | Entregable | Resultado |
 | --- | --- |
@@ -188,7 +188,7 @@ git push vercel main
 
 - `vercel.json` sirve `build/web` sin compilar (`buildCommand` e `installCommand` vacíos, `framework: null`, rewrite a `index.html`).
 - Tras el push se verificó en `https://code-unna.vercel.app/`:
-  - Título: **CODE UNCA · Comercio digital del limón**.
+  - Título: **CODI-UNCA · Comercio digital del limón**.
   - Descarga de `/modelo_limon.onnx`: 16 040 694 bytes, mismo hash local.
   - Sesión ORT creada en el navegador con `executionProviders: ['wasm']`, `numThreads: 1`.
   - Entrada `images`, salida `logits`, 4 logits devueltos correctamente.
@@ -204,7 +204,7 @@ git push vercel main
 
 ### Recomendaciones de seguimiento
 
-1. Actualizar `web/manifest.json`: hoy usa nombre corto `flutter_application_1`, descripción genérica y colores azules de Flutter; alinearlo con CODE UNCA.
+1. Actualizar `web/manifest.json`: hoy usa nombre corto `flutter_application_1`, descripción genérica y colores azules de Flutter; alinearlo con CODI-UNCA.
 2. Renombrar el paquete técnico (`flutter_application_1`) y los bundle ids (`com.example.flutterApplication1`) cuando se publique en tiendas.
 3. Sustituir `test/widget_test.dart` por pruebas reales: actualmente contiene una copia rezagada de funciones ya centralizadas.
 4. Documentar la calibración `MM_POR_PIXEL` del análisis clásico con una regla física para estimar tamaño en milímetros.

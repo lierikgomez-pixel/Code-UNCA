@@ -1,5 +1,5 @@
 {
-  "nombre": "Base de conocimiento local de CODE UNCA",
+  "nombre": "Base de conocimiento local de CODI-UNCA",
   "version": "1.0.0",
   "fuente": "lib/services/knowledge.dart",
   "enfoque": "RAG local + prompt engineering con few-shot",
@@ -70,7 +70,7 @@
       "id": 11,
       "tema": "Datos bancarios simulados",
       "palabras_clave": ["banco", "clabe", "datos", "bancarios", "titular", "agregar", "agrego", "simulacion", "simular"],
-      "respuesta": "En CODE UNCA puedes agregar tus datos bancarios como simulación desde el botón de configuración de Cobrar. Guarda banco, CLABE y titular solo en tu dispositivo. No escribas datos reales ni los compartas."
+      "respuesta": "En CODI-UNCA puedes agregar tus datos bancarios como simulación desde el botón de configuración de Cobrar. Guarda banco, CLABE y titular solo en tu dispositivo. No escribas datos reales ni los compartas."
     },
     {
       "id": 12,

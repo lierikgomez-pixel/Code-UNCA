@@ -72,6 +72,13 @@ class HeroTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Image.asset(
+          'assets/logo.png',
+          height: 54,
+          width: 54,
+          fit: BoxFit.contain,
+        ),
+        const SizedBox(height: 12),
         Text(kicker, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 3)),
         Text(title,
             style: const TextStyle(fontSize: 68, fontWeight: FontWeight.w900, height: 1.0, letterSpacing: -1)),

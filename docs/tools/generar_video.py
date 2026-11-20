@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Genera el video de sustentación de CODE UNCA (máximo 3 minutos).
+"""Genera el video de sustentación de CODI-UNCA (máximo 3 minutos).
 
 - Narra cada diapositiva con edge-tts (es-MX-JorgeNeural).
 - Dibuja las diapositivas con Pillow.
@@ -19,8 +19,9 @@ from contenido_diapositivas import COLORES, SLIDES
 
 ROOT = Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs"
-OUT_VIDEO = DOCS / "VIDEO_CODE_UNCA.mp4"
+OUT_VIDEO = DOCS / "VIDEO_CODI_UNCA.mp4"
 OUT_GUION = DOCS / "GUION_VIDEO.md"
+LOGO = DOCS / "logo.png"
 
 W, H = 1280, 720
 FPS = 10
@@ -28,7 +29,7 @@ VOZ = "es-MX-JorgeNeural"
 RATE = "+5%"
 
 NARRACION = [
-    "CODE UNCA es comercio digital del limón para Oaxaca y la Sierra de Flores Magón. Clasificamos la fruta con inteligencia artificial local y cobramos con historial.",
+    "CODI-UNCA es comercio digital del limón para Oaxaca -Sierra de Flores Magón. Clasificamos la fruta con inteligencia artificial local y cobramos con historial.",
     "El productor decide cuándo vender mirando el limón y cobra sin dejar un historial útil. Nuestra tarea es ayudarlo a clasificar y cobrar en el mismo momento.",
     "La aplicación tiene cinco pantallas: Cobrar, Pedidos, Calidad, Asistente y Aprender. La foto se analiza, el asistente opina y cada venta suma al historial digital.",
     "El recorrido es sencillo: cobrar ciento ochenta pesos con código QR, crear un pedido de doce kilos y medio, tomar una foto nueva y preguntar si se vende.",
@@ -54,6 +55,13 @@ def font(bold=False, size=18):
     return ImageFont.truetype(str(path), size)
 
 
+def paste_logo(img, right, top, alto):
+    logo = Image.open(LOGO).convert("RGBA")
+    ancho = int(alto * logo.width / logo.height)
+    logo = logo.resize((ancho, alto), Image.Resampling.LANCZOS)
+    img.paste(logo, (right - ancho, top), logo)
+
+
 def wrap_text(draw, text, fnt, max_width):
     words = text.split()
     lines, current = [], ""
@@ -77,12 +85,11 @@ def render_slide(slide, index, progress):
     d.rectangle((0, 0, W, 128), fill=color("bosque"))
     d.rectangle((0, 128, W, 136), fill=color("limon"))
 
-    d.text((40, 24), slide.get("kicker", "CODE UNCA · Oaxaca").upper(), font=font(True, 16), fill=color("limon"))
+    d.text((40, 24), slide.get("kicker", "CODI-UNCA · Oaxaca").upper(), font=font(True, 16), fill=color("limon"))
     d.text((40, 55), slide["titulo"], font=font(True, 44 if slide.get("portada") else 38), fill=color("blanco"))
     d.text((42, 106), slide["subtitulo"], font=font(False, 18), fill=color("gris"))
 
-    d.ellipse((W - 112, 30, W - 48, 94), fill=color("limon"))
-    d.text((W - 94, 45), "CU", font=font(True, 24), fill=color("bosque"))
+    paste_logo(img, W - 34, 28, 72)
 
     y = 175
     for i, bullet in enumerate(slide["bullets"], 1):
@@ -183,7 +190,7 @@ def main():
     final_duration = duration_of(OUT_VIDEO, ffmpeg)
     print(f"OK {OUT_VIDEO} ({final_duration:.1f}s)")
 
-    guion = ["# Guion del video — CODE UNCA", "", f"**Duración:** {final_duration:.0f} segundos · **Voz:** {VOZ}", "", "| # | Diapositiva | Narración |", "| --- | --- | --- |"]
+    guion = ["# Guion del video — CODI-UNCA", "", f"**Duración:** {final_duration:.0f} segundos · **Voz:** {VOZ}", "", "| # | Diapositiva | Narración |", "| --- | --- | --- |"]
     for i, (slide, texto) in enumerate(zip(SLIDES, NARRACION), 1):
         guion.append(f"| {i} | {slide['titulo']} | {texto} |")
     guion += ["", "El video se genera con `python docs/tools/generar_video.py`.", ""]

@@ -1,4 +1,4 @@
-# Documentación de la app — CODE UNCA
+# Documentación de la app — CODI-UNCA
 
 **Versión:** 1.0.0+1
 **Plataforma principal:** Flutter Web (también compila para móvil y escritorio)
@@ -7,9 +7,9 @@
 
 ---
 
-## 1. Qué es CODE UNCA
+## 1. Qué es CODI-UNCA
 
-**CODE UNCA — Comercio digital del limón** es una aplicación para productores de limón/lima (*Citrus aurantiifolia*) de **Oaxaca** y la **Sierra de Flores Magón**. Reúne en una sola herramienta:
+**CODI-UNCA — Comercio digital del limón** es una aplicación para productores de limón/lima (*Citrus aurantiifolia*) de **Oaxaca** y la **Sierra de Flores Magón**. Reúne en una sola herramienta:
 
 - Cobro con QR, SPEI, link de pago, tarjeta y efectivo.
 - Alta de productos y pedidos por kilo, costal, caja o bolsa.
@@ -21,12 +21,12 @@ La identidad visible es:
 
 | Elemento | Texto |
 | --- | --- |
-| Título de la app | **CODE UNCA** |
-| Kicker | **OAXACA Y SIERRA DE FLORES MAGÓN** |
+| Título de la app | **CODI-UNCA** |
+| Kicker | **OAXACA -SIERRA DE FLORES MAGÓN** |
 | Subtítulo | **Comercio digital del limón.** |
-| Título del navegador | **CODE UNCA · Comercio digital del limón** |
+| Título del navegador | **CODI-UNCA · Comercio digital del limón** |
 
-> Nota técnica: el nombre del paquete Dart sigue siendo `flutter_application_1` y los bundle ids `com.example.flutterApplication1`. La marca de producto es CODE UNCA.
+> Nota técnica: el nombre del paquete Dart sigue siendo `flutter_application_1` y los bundle ids `com.example.flutterApplication1`. La marca de producto es CODI-UNCA.
 
 ---
 
@@ -92,7 +92,7 @@ La identidad visible es:
 
 ### 4.1 Cobrar
 
-Pantalla de inicio. Muestra el hero **CODE UNCA**, métricas del día y las últimas 8 ventas.
+Pantalla de inicio. Muestra el hero **CODI-UNCA**, métricas del día y las últimas 8 ventas.
 
 - Campo de monto y concepto (por defecto «Venta de limón»).
 - Botón **Cobrar** → `startPayment(...)` → confirmación → `store.addSale`.

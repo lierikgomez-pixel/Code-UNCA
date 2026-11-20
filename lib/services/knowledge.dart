@@ -117,7 +117,7 @@ const _faqs = <_Faq>[
       'simulacion',
       'simular',
     ],
-    'En CODE UNCA puedes agregar tus datos bancarios como simulación desde el botón de '
+    'En CODI-UNCA puedes agregar tus datos bancarios como simulación desde el botón de '
     'configuración de Cobrar. Guarda banco, CLABE y titular solo en tu dispositivo. '
     'No escribas datos reales ni los compartas.',
   ),

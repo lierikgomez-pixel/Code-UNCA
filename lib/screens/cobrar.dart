@@ -49,7 +49,7 @@ class _CobrarScreenState extends State<CobrarScreen> {
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.bosqueProfundo,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
-        title: const Text('CODE UNCA · Mi negocio'),
+        title: const Text('CODI-UNCA · Mi negocio'),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -135,7 +135,12 @@ class _CobrarScreenState extends State<CobrarScreen> {
               children: [
                 Row(
                   children: [
-                    const Text('🍋', style: TextStyle(fontSize: 30)),
+                    Image.asset(
+                      'assets/logo.png',
+                      height: 34,
+                      width: 34,
+                      fit: BoxFit.contain,
+                    ),
                     const SizedBox(width: 8),
                     Expanded(
                       child: Column(
@@ -149,7 +154,7 @@ class _CobrarScreenState extends State<CobrarScreen> {
                             ),
                           ),
                           const Text(
-                            'CODE UNCA · Oaxaca',
+                            'CODI-UNCA · Oaxaca',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.white70,
@@ -194,8 +199,8 @@ class _CobrarScreenState extends State<CobrarScreen> {
                 ),
                 const SizedBox(height: 28),
                 const HeroTitle(
-                  kicker: 'OAXACA Y SIERRA DE FLORES MAGÓN',
-                  title: 'CODE UNCA',
+                  kicker: 'OAXACA -SIERRA DE FLORES MAGÓN',
+                  title: 'CODI-UNCA',
                   subtitle: 'Comercio digital del limón.',
                 ),
                 const SizedBox(height: 20),

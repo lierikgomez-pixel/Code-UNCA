@@ -10,7 +10,7 @@ Este índice mapea cada requerimiento de la presentación con el archivo que lo 
 | Ficha PDF máximo 4 páginas | Ficha técnica | `docs/FICHA_TECNICA.pdf` |
 | Evidencias de evaluación | Resultados ejecutables | `docs/EVIDENCIAS_EVALUACION.md` |
 | Presentación PDF | 10 diapositivas | `docs/PRESENTACION.pdf` |
-| Video máximo 3 minutos | Video de sustentación | `docs/VIDEO_CODE_UNCA.mp4` |
+| Video máximo 3 minutos | Video de sustentación | `docs/VIDEO_CODI_UNCA.mp4` |
 | Guion para defender el tema | Guion de 15 min + preguntas | `docs/GUION_DEFENSA.md` |
 | Declaración de uso de IA | Transparencia y responsable | `docs/DECLARACION_IA.md` |
 | TRL declarado | Honestidad técnica | `docs/GUION_DEFENSA.md`, `docs/FICHA_TECNICA.pdf` |

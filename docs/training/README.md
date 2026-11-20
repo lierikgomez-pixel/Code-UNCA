@@ -1,4 +1,4 @@
-# Paquete de entrenamiento — CODE UNCA
+# Paquete de entrenamiento — CODI-UNCA
 
 **Entregable:** paquete de entrenamiento de ambos modelos (diapositivas 10, 11, 12 y 15 de la presentación del hackathon).
 

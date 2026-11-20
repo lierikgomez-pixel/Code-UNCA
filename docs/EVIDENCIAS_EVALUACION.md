@@ -1,4 +1,4 @@
-# Evidencias de evaluación — CODE UNCA
+# Evidencias de evaluación — CODI-UNCA
 
 **Entregable:** evidencias de evaluación (diapositiva 15 de la presentación).
 **Fecha:** 20 de noviembre de 2026.
@@ -45,7 +45,7 @@ Resultado guardado en `docs/evidencias/resultados_app.json`:
 
 Además de los casos automatizados se verificó en producción (https://code-unna.vercel.app/):
 
-- Título: **CODE UNCA · Comercio digital del limón**.
+- Título: **CODI-UNCA · Comercio digital del limón**.
 - `/modelo_limon.onnx` responde 16 040 694 bytes con el mismo SHA-256 local.
 - La sesión `onnxruntime-web@1.23.2` se crea con `executionProviders: ['wasm']` y `numThreads: 1`.
 - Entrada `images`, salida `logits`, 4 logits devueltos.
