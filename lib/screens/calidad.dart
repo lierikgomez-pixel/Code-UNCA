@@ -63,12 +63,14 @@ class _CalidadScreenState extends State<CalidadScreen> {
     );
   }
 
-  Color _color(String clase) => switch (clase) {
-        'verde' => AppColors.menta,
-        'maduro' => AppColors.limon,
-        'podrido' => const Color(0xFFFF8A80),
-        _ => Colors.white70,
-      };
+  Color _color(ModelResult r) => r.esDudoso
+      ? const Color(0xFFFFD54F)
+      : switch (r.clase) {
+          'verde' => AppColors.menta,
+          'maduro' => AppColors.limon,
+          'podrido' => const Color(0xFFFF8A80),
+          _ => Colors.white70,
+        };
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +110,7 @@ class _CalidadScreenState extends State<CalidadScreen> {
                 Expanded(
                   child: Text(
                     r.etiqueta,
-                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: _color(r.clase)),
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: _color(r)),
                   ),
                 ),
                 if (r.desdeModelo)

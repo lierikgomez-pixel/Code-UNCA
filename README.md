@@ -33,6 +33,12 @@ por lo que no se necesita un servidor GPU ni API remota. La primera carga
 descarga el modelo; después queda en caché. En móvil/escritorio se usa el
 analizador de color clásico como respaldo.
 
+Cuando la predicción no es concluyente (confianza menor al 60 %, o cuando gana
+`sin_limon` pero las clases de fruta suman más probabilidad), la interfaz muestra
+**Resultado dudoso** y pide una nueva foto en vez de afirmar que no hay fruta.
+Así se evita el falso negativo en el que el modelo da, por ejemplo, 45 % a
+`sin_limon` y 55 % repartido entre `maduro`, `podrido` y `verde`.
+
 Archivos relacionados:
 
 - `lib/services/modelo.dart` — API Dart y clases.
