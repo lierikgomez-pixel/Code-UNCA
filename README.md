@@ -1,17 +1,60 @@
-# flutter_application_1
+# LEDPago Limón Oaxaca
 
-A new Flutter project.
+App Flutter (cobro, pedidos, control de calidad, asistente y aprendizaje) para
+productores de limón/lima (*Citrus aurantiifolia*).
 
-## Getting Started
+## Modelo de control de calidad integrado
 
-This project is a starting point for a Flutter application.
+La pestaña **Calidad** clasifica cada foto en cuatro clases con un modelo
+EfficientNet-B0 entrenado con PyTorch y exportado a ONNX:
 
-A few resources to get you started if this is your first Flutter project:
+| Clase | Significado |
+| --- | --- |
+| `verde` | Limón inmaduro |
+| `maduro` | Punto óptimo de venta |
+| `podrido` | Dañado / manchado |
+| `sin_limon` | No se detectó fruta |
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Resultados del entrenamiento: **accuracy 0.9884**, **F1 macro 0.9909** sobre
+  604 imágenes de prueba.
+- Dataset público: `ritikb2211/final-dataset` en Kaggle (descarga sin token).
+- Entrenamiento: `control_calidad_limon/control_calidad_limon.ipynb`, con
+  transfer learning, AMP FP16 y exportación ONNX.
+- Artefacto: `web/modelo_limon.onnx` (≈15.3 MB), entrada `images` de forma
+  `[1, 3, 224, 224]`, salida `logits`.
+- Preprocesamiento: resize directo a 224×224, RGB, normalización ImageNet
+  (`mean=[0.485, 0.456, 0.406]`, `std=[0.229, 0.224, 0.225]`) y layout NCHW.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Inferencia
+
+En **Flutter Web** el modelo corre dentro del navegador con
+[ONNX Runtime Web](https://onnxruntime.ai/docs/tutorials/web/) (WASM, un hilo),
+por lo que no se necesita un servidor GPU ni API remota. La primera carga
+descarga el modelo; después queda en caché. En móvil/escritorio se usa el
+analizador de color clásico como respaldo.
+
+Archivos relacionados:
+
+- `lib/services/modelo.dart` — API Dart y clases.
+- `lib/services/modelo_web.dart` — preprocesamiento e interop con ORT Web.
+- `lib/services/modelo_stub.dart` — respaldo no web.
+- `web/ort_helper.js` — carga de la sesión ONNX.
+- `web/index.html` — scripts de ORT desde CDN.
+
+## Despliegue en Vercel
+
+`build/web` está incluido en el repositorio y `vercel.json` indica:
+
+- `outputDirectory: build/web`
+- `buildCommand` e `installCommand` vacíos (Vercel no compila Flutter).
+
+Para actualizar el despliegue tras cambiar código Dart:
+
+```bash
+flutter pub get
+flutter analyze
+flutter build web --release
+git add . && git commit -m "Actualizar app y modelo" && git push
+```
+
+Luego Vercel vuelve a desplegar automáticamente desde el repositorio.

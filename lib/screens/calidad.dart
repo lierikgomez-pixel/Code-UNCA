@@ -1,8 +1,8 @@
 import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../services/freshness.dart';
+import '../services/freshness.dart' show Freshness, FreshnessResult, analyzeFreshness;
+import '../services/modelo.dart' show ModelResult, predecirModelo;
 import '../theme.dart';
 import '../widgets.dart';
 
@@ -14,7 +14,7 @@ class CalidadScreen extends StatefulWidget {
 
 class _CalidadScreenState extends State<CalidadScreen> {
   Uint8List? _bytes;
-  FreshnessResult? _result;
+  ModelResult? _result;
   bool _busy = false;
 
   Future<void> _capture(ImageSource source) async {
@@ -27,10 +27,19 @@ class _CalidadScreenState extends State<CalidadScreen> {
         _result = null;
         _busy = true;
       });
-      final r = await compute(analyzeFreshness, bytes);
+
+      ModelResult result;
+      try {
+        result = await predecirModelo(bytes);
+      } catch (_) {
+        // Si el modelo no está disponible (móvil, sin conexión o fallo de carga),
+        // se mantiene el analizador clásico para no dejar la función vacía.
+        result = _resultadoClasico(analyzeFreshness(bytes));
+      }
+
       if (!mounted) return;
       setState(() {
-        _result = r;
+        _result = result;
         _busy = false;
       });
     } catch (e) {
@@ -40,10 +49,25 @@ class _CalidadScreenState extends State<CalidadScreen> {
     }
   }
 
-  Color _color(Freshness f) => switch (f) {
-        Freshness.fresco => AppColors.menta,
-        Freshness.regular => AppColors.limon,
-        Freshness.pasado => const Color(0xFFFF8A80),
+  ModelResult _resultadoClasico(FreshnessResult classic) {
+    final clase = switch (classic.level) {
+          Freshness.fresco => 'verde',
+          Freshness.regular => 'maduro',
+          Freshness.pasado => 'podrido',
+        };
+    return ModelResult(
+      clase: clase,
+      confianza: 0,
+      probabilidades: const {},
+      desdeModelo: false,
+    );
+  }
+
+  Color _color(String clase) => switch (clase) {
+        'verde' => AppColors.menta,
+        'maduro' => AppColors.limon,
+        'podrido' => const Color(0xFFFF8A80),
+        _ => Colors.white70,
       };
 
   @override
@@ -53,7 +77,7 @@ class _CalidadScreenState extends State<CalidadScreen> {
       appBar: AppBar(title: const Text('Calidad del limón')),
       body: ListView(padding: const EdgeInsets.fromLTRB(20, 8, 20, 24), children: [
         const Text(
-          'Toma la foto con buena luz y sobre un fondo claro. Funciona sin internet.',
+          'Toma la foto con buena luz y sobre un fondo claro. El análisis se hace con el modelo entrenado directamente en tu navegador.',
           style: TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 16),
@@ -80,12 +104,51 @@ class _CalidadScreenState extends State<CalidadScreen> {
           const SizedBox(height: 16),
           Panel(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(r.label, style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: _color(r.level))),
+              Row(children: [
+                Expanded(
+                  child: Text(
+                    r.etiqueta,
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: _color(r.clase)),
+                  ),
+                ),
+                if (r.desdeModelo)
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    decoration: BoxDecoration(
+                      color: AppColors.hoja,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Text('IA', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                  ),
+              ]),
               const SizedBox(height: 8),
-              Text(r.advice, style: const TextStyle(fontSize: 17)),
+              Text(r.consejo, style: const TextStyle(fontSize: 17)),
+              if (r.desdeModelo) ...[
+                const SizedBox(height: 12),
+                Text(
+                  'Confianza: ${(r.confianza * 100).toStringAsFixed(1)}%',
+                  style: const TextStyle(fontSize: 15, color: Colors.white70),
+                ),
+                const SizedBox(height: 8),
+                for (final entry in r.probabilidades.entries)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(
+                      '${entry.key}: ${(entry.value * 100).toStringAsFixed(1)}%',
+                      style: const TextStyle(fontSize: 13, color: Colors.white70),
+                    ),
+                  ),
+              ] else
+                const Padding(
+                  padding: EdgeInsets.only(top: 12),
+                  child: Text(
+                    'Análisis clásico (modelo no disponible en este dispositivo).',
+                    style: TextStyle(fontSize: 13, color: Colors.white70),
+                  ),
+                ),
               const SizedBox(height: 12),
               const Text(
-                'Es una segunda opinión aproximada. La decisión final es tuya.',
+                'Es una segunda opinión. La decisión final es tuya.',
                 style: TextStyle(fontSize: 13, color: Colors.white70),
               ),
             ]),
