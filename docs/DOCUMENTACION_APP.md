@@ -96,7 +96,7 @@ Pantalla de inicio. Muestra el hero **CODI-UNCA**, métricas del día y las últ
 
 - Campo de monto y concepto (por defecto «Venta de limón»).
 - Botón **Cobrar** → `startPayment(...)` → confirmación → `store.addSale`.
-- Engrane **Mi negocio**: nombre, celular o CLABE ligada a CoDi/DiMo y datos bancarios de **simulación local**.
+- Engrane **Datos del negocio**: nombre, celular o CLABE ligada a CoDi/DiMo y datos bancarios de **simulación local**.
 - Advertencia visible: «Solo demostración. No escribas datos reales.»
 
 ### 4.2 Pedidos

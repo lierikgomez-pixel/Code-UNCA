@@ -20,7 +20,13 @@ class AprenderScreen extends StatelessWidget {
       builder: (context, _) {
         final progreso = (store.monthDigital / _metaDigitalMensual).clamp(0.0, 1.0);
         return Scaffold(
-          appBar: AppBar(title: const Text('Aprender y crecer')),
+          appBar: AppBar(
+        leading: const Padding(
+          padding: EdgeInsets.all(8),
+          child: BrandLogo(size: 30),
+        ),
+        title: const Text('Aprender y crecer'),
+      ),
           body: ListView(padding: const EdgeInsets.fromLTRB(20, 8, 20, 24), children: [
             Panel(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

@@ -61,7 +61,7 @@ pantalla **Calidad** muestra el mismo criterio en el panel **Mi opinión**. El
 color detectado actúa como segunda opinión (`amarillando` matiza `verde`;
 `manchas` puede revertir `maduro`).
 
-Desde **Cobrar → Mi negocio** el vendedor puede capturar banco, CLABE y titular
+Desde **Cobrar → Datos del negocio** el vendedor puede capturar banco, CLABE y titular
 **solo como simulación local**; el asistente menciona el estado de esos datos sin
 mostrar la CLABE completa (solo los últimos 4 dígitos).
 

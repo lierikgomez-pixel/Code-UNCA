@@ -86,7 +86,7 @@ ONNX Runtime no es dependencia Dart: se carga desde CDN en `web/index.html` (`on
    - **Efectivo**: indica el cambio o el faltante.
 5. La venta aparece en «Últimas ventas» y suma a las métricas del día y del mes.
 
-**Mi negocio** (engrane): nombre, celular o CLABE ligada a CoDi/DiMo y datos bancarios de **simulación local**. No escribir datos reales.
+**Datos del negocio** (engrane): nombre, celular o CLABE ligada a CoDi/DiMo y datos bancarios de **simulación local**. No escribir datos reales.
 
 ### 3.2 Pedidos
 

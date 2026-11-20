@@ -53,7 +53,7 @@ El usuario puede corregir o contradecir al sistema en cuatro puntos:
 1. **Repetir la foto** si el resultado es dudoso o la luz fue mala.
 2. **Usar el color como segunda opinión**: `amarillando` matiza `verde`; `manchas` puede revertir `maduro`.
 3. **Ignorar la recomendación**: el panel lo dice explícitamente; la decisión final es humana.
-4. **Corregir datos del negocio** desde «Mi negocio» en Cobrar.
+4. **Corregir datos del negocio** desde «Datos del negocio» en Cobrar.
 
 ---
 

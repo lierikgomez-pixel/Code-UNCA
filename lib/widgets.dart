@@ -4,6 +4,20 @@ import 'models.dart';
 import 'store.dart';
 import 'theme.dart';
 
+/// Logo institucional reutilizable en toda la app.
+class BrandLogo extends StatelessWidget {
+  final double size;
+  const BrandLogo({super.key, this.size = 34});
+
+  @override
+  Widget build(BuildContext context) => Image.asset(
+        'assets/logo.png',
+        width: size,
+        height: size,
+        fit: BoxFit.contain,
+      );
+}
+
 /// Tarjeta oscura translúcida.
 class Panel extends StatelessWidget {
   final Widget child;
@@ -72,12 +86,7 @@ class HeroTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Image.asset(
-          'assets/logo.png',
-          height: 54,
-          width: 54,
-          fit: BoxFit.contain,
-        ),
+        const BrandLogo(size: 54),
         const SizedBox(height: 12),
         Text(kicker, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, letterSpacing: 3)),
         Text(title,

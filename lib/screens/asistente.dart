@@ -165,6 +165,10 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Padding(
+          padding: EdgeInsets.all(8),
+          child: BrandLogo(size: 30),
+        ),
         title: const Text('Asistente'),
         actions: [
           IconButton(
