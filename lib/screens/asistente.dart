@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+
 import '../services/knowledge.dart';
 import '../theme.dart';
 import '../widgets.dart';
@@ -23,17 +24,29 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
   final _input = TextEditingController();
   final _scroll = ScrollController();
   final List<_Msg> _msgs = [
-    _Msg('Hola, soy tu asistente. Pregúntame cómo cobrar tu limón con QR, qué es CoDi o qué dice la ley.', false),
+    _Msg(
+      'Hola, soy tu asistente. Pregúntame cómo cobrar tu limón con QR, qué es CoDi o qué dice la ley.',
+      false,
+    ),
   ];
   bool _speak = true;
   bool _sttReady = false;
   bool _listening = false;
 
+  static const _sugerencias = <String>[
+    '¿Cómo cobro con QR?',
+    '¿Es obligatorio aceptar tarjeta?',
+    '¿Qué es CoDi?',
+    '¿Cómo cuido la calidad?',
+  ];
+
   @override
   void initState() {
     super.initState();
     _tts.setLanguage('es-MX');
-    _tts.setSpeechRate(0.45);
+    _tts.setSpeechRate(0.95);
+    _tts.setVolume(1.0);
+    _tts.setPitch(1.0);
   }
 
   @override
@@ -55,8 +68,11 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
     _input.clear();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scroll.hasClients) {
-        _scroll.animateTo(_scroll.position.maxScrollExtent,
-            duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
+        _scroll.animateTo(
+          _scroll.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeOut,
+        );
       }
     });
     if (_speak) await _tts.speak(a);
@@ -69,9 +85,13 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
       return;
     }
     if (!_sttReady) {
-      _sttReady = await _stt.initialize(onStatus: (s) {
-        if ((s == 'done' || s == 'notListening') && mounted) setState(() => _listening = false);
-      });
+      _sttReady = await _stt.initialize(
+        onStatus: (s) {
+          if ((s == 'done' || s == 'notListening') && mounted) {
+            setState(() => _listening = false);
+          }
+        },
+      );
     }
     if (!_sttReady) {
       if (mounted) snack(context, 'No se pudo activar el micrófono');
@@ -103,61 +123,101 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
           ),
         ],
       ),
-      body: Column(children: [
-        Expanded(
-          child: ListView.builder(
-            controller: _scroll,
-            padding: const EdgeInsets.all(16),
-            itemCount: _msgs.length,
-            itemBuilder: (_, i) {
-              final m = _msgs[i];
-              return Align(
-                alignment: m.mine ? Alignment.centerRight : Alignment.centerLeft,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 4),
-                  padding: const EdgeInsets.all(14),
-                  constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
-                  decoration: BoxDecoration(
-                    color: m.mine ? AppColors.limon : AppColors.panel,
-                    borderRadius: BorderRadius.circular(20),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              controller: _scroll,
+              padding: const EdgeInsets.all(16),
+              itemCount: _msgs.length,
+              itemBuilder: (_, i) {
+                final m = _msgs[i];
+                return Align(
+                  alignment: m.mine
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 4),
+                    padding: const EdgeInsets.all(14),
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width * 0.8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: m.mine ? AppColors.limon : AppColors.panel,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      m.text,
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: m.mine ? AppColors.bosqueProfundo : Colors.white,
+                      ),
+                    ),
                   ),
-                  child: Text(
-                    m.text,
-                    style: TextStyle(fontSize: 17, color: m.mine ? AppColors.bosqueProfundo : Colors.white),
+                );
+              },
+            ),
+          ),
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 38,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        for (final q in _sugerencias)
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8),
+                            child: ActionChip(
+                              label: Text(q),
+                              onPressed: () => _send(q),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-        ),
-        SafeArea(
-          top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
-            child: Row(children: [
-              IconButton.filled(
-                iconSize: 32,
-                onPressed: _toggleMic,
-                style: IconButton.styleFrom(
-                  backgroundColor: _listening ? const Color(0xFFFF8A80) : AppColors.limon,
-                  foregroundColor: AppColors.bosqueProfundo,
-                ),
-                icon: Icon(_listening ? Icons.stop : Icons.mic),
-                tooltip: 'Hablar',
+                  const SizedBox(height: 6),
+                  Row(
+                    children: [
+                      IconButton.filled(
+                        iconSize: 32,
+                        onPressed: _toggleMic,
+                        style: IconButton.styleFrom(
+                          backgroundColor: _listening
+                              ? const Color(0xFFFF8A80)
+                              : AppColors.limon,
+                          foregroundColor: AppColors.bosqueProfundo,
+                        ),
+                        icon: Icon(_listening ? Icons.stop : Icons.mic),
+                        tooltip: 'Hablar',
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: TextField(
+                          controller: _input,
+                          decoration: const InputDecoration(
+                            hintText: 'O escribe aquí',
+                          ),
+                          onSubmitted: _send,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () => _send(_input.text),
+                        icon: const Icon(Icons.send),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: TextField(
-                  controller: _input,
-                  decoration: const InputDecoration(hintText: 'O escribe aquí'),
-                  onSubmitted: _send,
-                ),
-              ),
-              IconButton(onPressed: () => _send(_input.text), icon: const Icon(Icons.send)),
-            ]),
+            ),
           ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }
