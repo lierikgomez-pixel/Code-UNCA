@@ -20,6 +20,7 @@ class AppStore extends ChangeNotifier {
   String lastPhotoClase = '';
   double lastPhotoConfianza = 0;
   bool lastPhotoDudoso = false;
+  String lastPhotoColor = '';
 
   List<Product> products = [];
   List<Sale> sales = [];
@@ -35,6 +36,7 @@ class AppStore extends ChangeNotifier {
     lastPhotoClase = _p!.getString('lastPhotoClase') ?? '';
     lastPhotoConfianza = _p!.getDouble('lastPhotoConfianza') ?? 0;
     lastPhotoDudoso = _p!.getBool('lastPhotoDudoso') ?? false;
+    lastPhotoColor = _p!.getString('lastPhotoColor') ?? '';
     products = _read('products', Product.fromJson);
     sales = _read('sales', Sale.fromJson);
     orders = _read('orders', Order.fromJson);
@@ -63,6 +65,7 @@ class AppStore extends ChangeNotifier {
     await p.setString('lastPhotoClase', lastPhotoClase);
     await p.setDouble('lastPhotoConfianza', lastPhotoConfianza);
     await p.setBool('lastPhotoDudoso', lastPhotoDudoso);
+    await p.setString('lastPhotoColor', lastPhotoColor);
     await p.setString(
       'products',
       jsonEncode(products.map((e) => e.toJson()).toList()),
@@ -107,10 +110,12 @@ class AppStore extends ChangeNotifier {
     required String clase,
     required double confianza,
     required bool dudoso,
+    String color = '',
   }) {
     lastPhotoClase = clase;
     lastPhotoConfianza = confianza;
     lastPhotoDudoso = dudoso;
+    lastPhotoColor = color;
     _commit();
   }
 

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../services/asesor.dart' show evaluarVenta;
 import '../services/freshness.dart'
     show Freshness, FreshnessResult, analyzeFreshness;
 import '../services/modelo.dart' show ModelResult, predecirModelo;
@@ -49,6 +50,7 @@ class _CalidadScreenState extends State<CalidadScreen> {
         clase: result.clase,
         confianza: result.confianza,
         dudoso: result.esDudoso,
+        color: _colorTexto(analyzeFreshness(bytes).level),
       );
 
       if (!mounted) return;
@@ -77,6 +79,13 @@ class _CalidadScreenState extends State<CalidadScreen> {
     );
   }
 
+  /// Segunda opinión clásica, en texto, para matizar la decisión de venta.
+  String _colorTexto(Freshness nivel) => switch (nivel) {
+    Freshness.fresco => 'verde y firme',
+    Freshness.regular => 'amarillando',
+    Freshness.pasado => 'con manchas o daño',
+  };
+
   Color _color(ModelResult r) => r.esDudoso
       ? const Color(0xFFFFD54F)
       : switch (r.clase) {
@@ -90,6 +99,14 @@ class _CalidadScreenState extends State<CalidadScreen> {
   Widget build(BuildContext context) {
     final r = _result;
     final classic = _bytes == null ? null : analyzeFreshness(_bytes!);
+    final veredicto = r == null
+        ? null
+        : evaluarVenta(
+            clase: r.clase,
+            confianza: r.confianza,
+            dudoso: r.esDudoso,
+            color: classic == null ? null : _colorTexto(classic.level),
+          );
     return Scaffold(
       appBar: AppBar(title: const Text('Calidad del limón')),
       body: ListView(
@@ -210,6 +227,33 @@ class _CalidadScreenState extends State<CalidadScreen> {
                           fontSize: 13,
                           color: Colors.white70,
                         ),
+                      ),
+                    ),
+                  const SizedBox(height: 12),
+                  if (veredicto != null)
+                    Panel(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Mi opinión: ${veredicto.titulo}',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w900,
+                              color: AppColors.limon,
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(veredicto.opinion),
+                          const SizedBox(height: 6),
+                          Text(
+                            veredicto.ayuda,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Colors.white70,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   const SizedBox(height: 12),

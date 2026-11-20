@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
+import '../services/asesor.dart';
 import '../services/knowledge.dart';
 import '../store.dart';
 import '../theme.dart';
@@ -26,7 +27,7 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
   final _scroll = ScrollController();
   final List<_Msg> _msgs = [
     _Msg(
-      'Hola, soy tu asistente. Pregúntame cómo cobrar tu limón con QR, qué es CoDi o qué dice la ley.',
+      'Hola, soy tu asistente. Pregúntame si vendes tu limón, cómo cobrar con QR, qué es CoDi o qué dice la ley.',
       false,
     ),
   ];
@@ -42,6 +43,9 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
     '¿Qué dice la ley de comercio digital?',
     '¿Cómo agrego mis datos bancarios?',
     '¿Qué dice mi última foto?',
+    '¿Vendo este limón?',
+    '¿Cumple para vender?',
+    'Ayúdame a venderlo',
   ];
 
   @override
@@ -63,7 +67,14 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
   Future<void> _send(String text) async {
     final q = text.trim();
     if (q.isEmpty) return;
-    final a = answerFor(q, contexto: _contexto());
+    final a = _esPreguntaDeVenta(q)
+        ? evaluarVenta(
+            clase: store.lastPhotoClase,
+            confianza: store.lastPhotoConfianza,
+            dudoso: store.lastPhotoDudoso,
+            color: store.lastPhotoColor.isEmpty ? null : store.lastPhotoColor,
+          ).paraChat
+        : answerFor(q, contexto: _contexto());
     setState(() {
       _msgs.add(_Msg(q, true));
       _msgs.add(_Msg(a, false));
@@ -109,6 +120,19 @@ class _AsistenteScreenState extends State<AsistenteScreen> {
         if (r.finalResult) _send(r.recognizedWords);
       },
     );
+  }
+
+  /// Preguntas sobre si el limón de la última foto se puede vender.
+  static bool _esPreguntaDeVenta(String q) {
+    final t = q.toLowerCase();
+    return t.contains('vendo este') ||
+        t.contains('vender este limón') ||
+        t.contains('venderlo') ||
+        t.contains('cumple para vender') ||
+        t.contains('ayúdame a vender') ||
+        t.contains('ayudame a vender') ||
+        t.contains('opinión del limón') ||
+        t.contains('opinion del limon');
   }
 
   /// Contexto breve del estado actual de la app para las respuestas.
